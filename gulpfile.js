@@ -24,7 +24,6 @@ var dependencies = [
 ];
 
 var browserifyTask = function (options) {
-
   // Our app bundler
 	var appBundler = browserify({
 		entries: [options.src], // Only need initial file, browserify finds the rest
@@ -38,7 +37,6 @@ var browserifyTask = function (options) {
   // files (main.js and vendors.js), as vendors.js will probably not change and
   // takes full advantage of caching
 	appBundler.external(options.development ? dependencies : []);
-
 
   // The rebundle process
   var rebundle = function () {
@@ -68,7 +66,6 @@ var browserifyTask = function (options) {
   // we develop. When deploying the dependencies will be included 
   // in the application bundle
   if (options.development) {
-
   	var testFiles = glob.sync('./specs/**/*-spec.js');
 		var testBundler = browserify({
 			entries: testFiles,
@@ -118,9 +115,7 @@ var browserifyTask = function (options) {
       .pipe(notify(function () {
         console.log('VENDORS bundle built in ' + (Date.now() - start) + 'ms');
       }));
-    
   }
-  
 }
 
 var cssTask = function (options) {
@@ -148,7 +143,6 @@ var cssTask = function (options) {
 
 // Starts our development workflow
 gulp.task('default', function () {
-
   browserifyTask({
     development: true,
     src: './app/main.js',
@@ -164,7 +158,6 @@ gulp.task('default', function () {
 });
 
 gulp.task('deploy', function () {
-
   browserifyTask({
     development: false,
     src: './app/main.js',
@@ -176,7 +169,6 @@ gulp.task('deploy', function () {
     src: './styles/**/*.css',
     dest: './dist'
   });
-
 });
 
 gulp.task('test', function () {

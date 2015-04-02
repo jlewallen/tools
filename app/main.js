@@ -1,4 +1,5 @@
 /** @jsx React.DOM */
 var React = require('react');
 var App = require('./App.js');
-React.render(<App/>, document.body);
+var AdminApp = require('./AdminApp.js');
+React.render(<div><App/><AdminApp/></div>, document.body);

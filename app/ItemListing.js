@@ -3,6 +3,7 @@ var React = require('react');
 var addons = require('react-addons');
 var Store = require('./Store.js');
 var actions = require('./actions.js');
+var InterestPanel = require('./InterestPanel.js');
 var _ = require('lodash');
 
 var ItemListing = React.createClass({
@@ -10,7 +11,7 @@ var ItemListing = React.createClass({
 
   getInitialState: function() {
     return {
-      item: Store.getItem(this.props.item.number)
+      item: Store.getItem(this.props.number)
     };
   },
   componentWillMount: function() {
@@ -21,28 +22,8 @@ var ItemListing = React.createClass({
   },
   changeState: function() {
     this.setState({
-      item: Store.getItem(this.props.item.number)
+      item: Store.getItem(this.props.number)
     });
-  },
-  addInterest: function() {
-    actions.addInterest(this.props.item.number);
-  },
-  sendInterest: function(ev) {
-    ev.preventDefault();
-    actions.sendInterest(this.props.item.number, this.state.message);
-  },
-  renderInterestPanel: function() {
-    if (_.isObject(this.state.item.pendingInterest)) {
-      return (
-        <form onSubmit={this.sendInterest}>
-          <textarea valueLink={this.linkState('message')}></textarea>
-          <button type="SUBMIT">Send</button>
-        </form>
-      );
-    }
-    return (
-      <button onClick={this.addInterest}>Want</button>
-    );
   },
 	render: function() {
 		return (
@@ -50,9 +31,7 @@ var ItemListing = React.createClass({
         <div className="name">{this.state.item.name}</div>
         <div className="description">{this.state.item.description}</div>
         <div className="price">{this.state.item.price}</div>
-        <div >
-          {this.renderInterestPanel()}
-        </div>
+        <InterestPanel number={this.props.number} />
       </div>
 		);
 	}

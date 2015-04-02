@@ -1,51 +1,38 @@
 /** @jsx React.DOM */
 var React = require('react');
 var Store = require('./Store.js');
+var ItemListing = require("./ItemListing.js");
 var actions = require('./actions.js');
 
 var App = React.createClass({
   getInitialState: function () {
     return {
-      messages: Store.getMessages(),
-      newMessage: ''
+      catalog: Store.getCatalog()
     };
   },
+
   componentWillMount: function () {
     Store.addChangeListener(this.changeState);
   },
+
   componentWillUnmount: function () {
     Store.removeChangeListener(this.changeState);
   },
+
   changeState: function () {
     this.setState({
-      messages: Store.getMessages()
+      catalog: Store.getCatalog()
     });
   },
-  addMessage: function (event) {
-    event.preventDefault();
-    var input = this.refs.newMessage.getDOMNode();
-    actions.addMessage(input.value);
-    this.setState({
-      newMessage: ''
-    });
+
+  renderItem: function(item) {
+    return (<ItemListing item={item}/>);
   },
-  updateNewMessage: function (event) {
-    this.setState({
-      newMessage: event.target.value
-    });
-  },
-  renderMessages: function (message) {
-    return (
-      <div>{message}</div>
-    );
-  },
+
 	render: function() {
 		return (
 			<div>
-        {this.state.messages.map(this.renderMessages)}
-        <form onSubmit={this.addMessage}>
-          <input ref="newMessage" type="text" value={this.state.newMessage} onChange={this.updateNewMessage}/>
-        </form>
+        {this.state.catalog.map(this.renderItem)}
       </div>
 		);
 	}

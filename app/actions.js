@@ -31,17 +31,59 @@ module.exports = _.extend({
       url: '/api/catalog'
     });
   }),
+  loadThread: createActionFunction('loadThread', function(id) {
+    return api({
+      url: '/api/threads/' + id
+    });
+  }),
   refreshInterests: createActionFunction('refreshInterests', function() {
     return api({
       url: '/api/interests/pending'
     });
   }),
   addInterest: createActionFunction('addInterest'),
-  sendInterest: createActionFunction('sendInterest', function(number, message) {
+  interested: createActionFunction('interested', function(item, message) {
     return api({
       method: 'POST',
-      url: '/api/item/' + number + '/interested',
+      url: item.urls.interested,
       data: JSON.stringify({ message: message })
+    });
+  }),
+  replyToThread: createActionFunction('replyToThread', function(thread, reply) {
+    return api({
+      method: 'POST',
+      url: thread.urls.reply,
+      data: JSON.stringify(reply)
+    });
+  }),
+  markAsAvailable: createActionFunction('markAsAvailable', function(item) {
+    return api({
+      method: 'POST',
+      url: item.urls.available
+    });
+  }),
+  markAsPaid: createActionFunction('markAsPaid', function(interest) {
+    return api({
+      method: 'POST',
+      url: interest.urls.paid
+    });
+  }),
+  markAsSold: createActionFunction('markAsSold', function(interest) {
+    return api({
+      method: 'POST',
+      url: interest.urls.sold
+    });
+  }),
+  markAsPublic: createActionFunction('markAsPublic', function(item) {
+    return api({
+      method: 'POST',
+      url: item.urls.public
+    });
+  }),
+  markAsPrivate: createActionFunction('markAsPrivate', function(item) {
+    return api({
+      method: 'POST',
+      url: item.urls.private
     });
   })
 });

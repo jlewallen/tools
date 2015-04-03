@@ -9,6 +9,8 @@
     "browserify": "^6.2.0",
     "connect": "^3.3.5",
     "eventemitter2": "^0.4.14",
+    "express": "^4.12.3",
+    "flux-react": "^2.6.0",
     "glob": "^4.0.6",
     "gulp": "^3.8.9",
     "gulp-concat": "^2.3.4",
@@ -24,16 +26,16 @@
     "lodash": "^3.6.0",
     "phantomjs": "^1.9.12",
     "promise": "^6.1.0",
+    "react": "^0.13.1",
     "react-addons": "^0.9.0",
     "reactify": "^0.15.2",
     "reqwest": "^1.1.5",
     "serve-static": "^1.9.2",
+    "sqlite3": "^3.0.5",
     "vinyl-source-stream": "^0.1.1",
     "watchify": "^2.1.1"
   },
   "dependencies": {
-    "express": "^4.12.3",
-    "flux-react": "^2.6.0",
-    "react": "^0.12.0"
+    "react-router": "^0.13.2"
   }
 }

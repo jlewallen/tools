@@ -25,13 +25,23 @@ var ItemListing = React.createClass({
       item: Store.getItem(this.props.number)
     });
   },
+  renderLowerPanel: function() {
+    if (!this.state.item.sold) {
+        return (<InterestPanel number={this.props.number} />);
+    }
+    else {
+      return (<b>This item has been sold.</b>);
+    }
+  },
 	render: function() {
 		return (
-			<div className="item">
-        <div className="name">{this.state.item.name}</div>
-        <div className="description">{this.state.item.description}</div>
-        <div className="price">{this.state.item.price}</div>
-        <InterestPanel number={this.props.number} />
+			<div>
+        <div className="row">
+          <div className="name">{this.state.item.name}</div>
+          <div className="description">{this.state.item.description}</div>
+          <div className="price">{this.state.item.price}</div>
+          {this.renderLowerPanel()}
+        </div>
       </div>
 		);
 	}

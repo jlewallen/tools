@@ -3,14 +3,15 @@ var React = require('react');
 var InterestStore = require('./InterestStore.js');
 var Negotiation = require('./Negotiation.js');
 var actions = require('./actions.js');
+var _ = require("lodash");
 
-var UnacknowledgedInterests = React.createClass({
+var ListOfInterests = React.createClass({
   getInitialState: function () {
     actions.refreshInterests();
     actions.refreshCatalog();
 
     return {
-      interests: InterestStore.getUnacknowledgedInterests()
+      interests: _(InterestStore.getUnacknowledgedInterests()).filter(this.props.filter).value()
     };
   },
 
@@ -24,12 +25,12 @@ var UnacknowledgedInterests = React.createClass({
 
   changeState: function () {
     this.setState({
-      interests: InterestStore.getUnacknowledgedInterests()
+      interests: _(InterestStore.getUnacknowledgedInterests()).filter(this.props.filter).value()
     });
   },
 
   renderInterest: function(interest) {
-    return (<div> <Negotiation interest={interest} /> </div>);
+    return (<Negotiation interest={interest} />);
   },
 
 	render: function() {
@@ -41,4 +42,4 @@ var UnacknowledgedInterests = React.createClass({
 	}
 });
 	
-module.exports = UnacknowledgedInterests;
+module.exports = ListOfInterests;

@@ -34,7 +34,7 @@ var AvailableItems = React.createClass({
 
 	render: function() {
 		return (
-			<div>
+			<div className="container">
         {this.state.catalog.map(this.renderItem)}
       </div>
 		);

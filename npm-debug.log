@@ -1,0 +1,730 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'c:\\Program Files (x86)\\nodejs\\node.exe',
+1 verbose cli   'c:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'react-router',
+1 verbose cli   '--save' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.35
+4 warn package.json flux-react-boilerplate@3.0.0 No repository field.
+5 verbose readDependencies using package.json deps
+6 verbose cache add [ 'react-router', null ]
+7 verbose cache add name=undefined spec="react-router" args=["react-router",null]
+8 verbose parsed url { protocol: null,
+8 verbose parsed url   slashes: null,
+8 verbose parsed url   auth: null,
+8 verbose parsed url   host: null,
+8 verbose parsed url   port: null,
+8 verbose parsed url   hostname: null,
+8 verbose parsed url   hash: null,
+8 verbose parsed url   search: null,
+8 verbose parsed url   query: null,
+8 verbose parsed url   pathname: 'react-router',
+8 verbose parsed url   path: 'react-router',
+8 verbose parsed url   href: 'react-router' }
+9 silly lockFile 8307adf9-react-router react-router
+10 verbose lock react-router C:\Users\Jacob\AppData\Roaming\npm-cache\8307adf9-react-router.lock
+11 silly lockFile 8307adf9-react-router react-router
+12 silly lockFile 8307adf9-react-router react-router
+13 verbose addNamed [ 'react-router', '' ]
+14 verbose addNamed [ null, '*' ]
+15 silly lockFile 683905ff-react-router react-router@
+16 verbose lock react-router@ C:\Users\Jacob\AppData\Roaming\npm-cache\683905ff-react-router.lock
+17 silly addNameRange { name: 'react-router', range: '*', hasData: false }
+18 verbose request where is /react-router
+19 verbose request registry https://registry.npmjs.org/
+20 verbose request id 00765a2a2c668850
+21 verbose url raw /react-router
+22 verbose url resolving [ 'https://registry.npmjs.org/', './react-router' ]
+23 verbose url resolved https://registry.npmjs.org/react-router
+24 verbose request where is https://registry.npmjs.org/react-router
+25 info trying registry request attempt 1 at 12:46:10
+26 http GET https://registry.npmjs.org/react-router
+27 http 200 https://registry.npmjs.org/react-router
+28 silly registry.get cb [ 200,
+28 silly registry.get   { date: 'Thu, 02 Apr 2015 16:47:03 GMT',
+28 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+28 silly registry.get     etag: '"34EIZIBUYRG6N84DYKOPC49F9"',
+28 silly registry.get     'content-type': 'application/json',
+28 silly registry.get     'cache-control': 'max-age=60',
+28 silly registry.get     'content-length': '63912',
+28 silly registry.get     'accept-ranges': 'bytes',
+28 silly registry.get     via: '1.1 varnish',
+28 silly registry.get     age: '6',
+28 silly registry.get     'x-served-by': 'cache-iad2125-IAD',
+28 silly registry.get     'x-cache': 'HIT',
+28 silly registry.get     'x-cache-hits': '1',
+28 silly registry.get     'x-timer': 'S1427993223.751839,VS0,VE0',
+28 silly registry.get     vary: 'Accept',
+28 silly registry.get     'keep-alive': 'timeout=10, max=50',
+28 silly registry.get     connection: 'Keep-Alive' } ]
+29 silly addNameRange number 2 { name: 'react-router', range: '*', hasData: true }
+30 silly addNameRange versions [ 'react-router',
+30 silly addNameRange   [ '0.0.0',
+30 silly addNameRange     '0.0.1',
+30 silly addNameRange     '0.4.0',
+30 silly addNameRange     '0.4.1',
+30 silly addNameRange     '0.4.2',
+30 silly addNameRange     '0.5.0',
+30 silly addNameRange     '0.5.1',
+30 silly addNameRange     '0.5.2',
+30 silly addNameRange     '0.5.3',
+30 silly addNameRange     '0.6.0',
+30 silly addNameRange     '0.6.1',
+30 silly addNameRange     '0.7.0',
+30 silly addNameRange     '0.8.0',
+30 silly addNameRange     '0.9.0',
+30 silly addNameRange     '0.9.1',
+30 silly addNameRange     '0.9.2',
+30 silly addNameRange     '0.9.3',
+30 silly addNameRange     '0.9.4',
+30 silly addNameRange     '0.9.5',
+30 silly addNameRange     '0.10.0',
+30 silly addNameRange     '0.10.1',
+30 silly addNameRange     '0.10.2',
+30 silly addNameRange     '0.11.0',
+30 silly addNameRange     '0.11.1',
+30 silly addNameRange     '0.11.2',
+30 silly addNameRange     '0.11.3',
+30 silly addNameRange     '0.11.4',
+30 silly addNameRange     '0.11.5',
+30 silly addNameRange     '0.11.6',
+30 silly addNameRange     '0.12.0',
+30 silly addNameRange     '0.12.1',
+30 silly addNameRange     '0.12.2',
+30 silly addNameRange     '0.12.3',
+30 silly addNameRange     '0.12.4',
+30 silly addNameRange     '0.13.0',
+30 silly addNameRange     '0.13.1',
+30 silly addNameRange     '0.13.2' ] ]
+31 verbose addNamed [ 'react-router', '0.13.2' ]
+32 verbose addNamed [ '0.13.2', '0.13.2' ]
+33 silly lockFile 77127282-react-router-0-13-2 react-router@0.13.2
+34 verbose lock react-router@0.13.2 C:\Users\Jacob\AppData\Roaming\npm-cache\77127282-react-router-0-13-2.lock
+35 silly lockFile 0fc448c4-t-router-react-router-0-13-2-tgz https://registry.npmjs.org/react-router/-/react-router-0.13.2.tgz
+36 verbose lock https://registry.npmjs.org/react-router/-/react-router-0.13.2.tgz C:\Users\Jacob\AppData\Roaming\npm-cache\0fc448c4-t-router-react-router-0-13-2-tgz.lock
+37 verbose addRemoteTarball [ 'https://registry.npmjs.org/react-router/-/react-router-0.13.2.tgz',
+37 verbose addRemoteTarball   '09343b14f799983ed210e2f466f28f7f1cf1b807' ]
+38 info retry fetch attempt 1 at 12:46:11
+39 verbose fetch to= C:\Users\Jacob\AppData\Local\Temp\npm-17716-O0s_tYFH\registry.npmjs.org\react-router\-\react-router-0.13.2.tgz
+40 http GET https://registry.npmjs.org/react-router/-/react-router-0.13.2.tgz
+41 http 200 https://registry.npmjs.org/react-router/-/react-router-0.13.2.tgz
+42 silly lockFile 0fc448c4-t-router-react-router-0-13-2-tgz https://registry.npmjs.org/react-router/-/react-router-0.13.2.tgz
+43 silly lockFile 0fc448c4-t-router-react-router-0-13-2-tgz https://registry.npmjs.org/react-router/-/react-router-0.13.2.tgz
+44 silly lockFile 77127282-react-router-0-13-2 react-router@0.13.2
+45 silly lockFile 77127282-react-router-0-13-2 react-router@0.13.2
+46 silly lockFile 683905ff-react-router react-router@
+47 silly lockFile 683905ff-react-router react-router@
+48 silly resolved [ { name: 'react-router',
+48 silly resolved     version: '0.13.2',
+48 silly resolved     description: 'A complete routing library for React.js',
+48 silly resolved     main: 'lib',
+48 silly resolved     repository:
+48 silly resolved      { type: 'git',
+48 silly resolved        url: 'https://github.com/rackt/react-router.git' },
+48 silly resolved     homepage: 'https://github.com/rackt/react-router/blob/latest/README.md',
+48 silly resolved     bugs: { url: 'https://github.com/rackt/react-router/issues' },
+48 silly resolved     authors: [ 'Ryan Florence', 'Michael Jackson' ],
+48 silly resolved     license: 'MIT',
+48 silly resolved     peerDependencies: { react: '0.13.x' },
+48 silly resolved     dependencies: { qs: '2.4.1', classnames: '1.1.x', 'object-assign': '^2.0.0' },
+48 silly resolved     tags: [ 'react', 'router' ],
+48 silly resolved     keywords:
+48 silly resolved      [ 'react',
+48 silly resolved        'react-component',
+48 silly resolved        'routing',
+48 silly resolved        'route',
+48 silly resolved        'routes',
+48 silly resolved        'router' ],
+48 silly resolved     _id: 'react-router@0.13.2',
+48 silly resolved     scripts: {},
+48 silly resolved     _shasum: '09343b14f799983ed210e2f466f28f7f1cf1b807',
+48 silly resolved     _from: 'react-router@',
+48 silly resolved     _resolved: 'https://registry.npmjs.org/react-router/-/react-router-0.13.2.tgz',
+48 silly resolved     _npmVersion: '2.5.1',
+48 silly resolved     _nodeVersion: '0.12.0',
+48 silly resolved     _npmUser: { name: 'ryanflorence', email: 'rpflorence@gmail.com' },
+48 silly resolved     maintainers: [ [Object], [Object] ],
+48 silly resolved     dist:
+48 silly resolved      { shasum: '09343b14f799983ed210e2f466f28f7f1cf1b807',
+48 silly resolved        tarball: 'http://registry.npmjs.org/react-router/-/react-router-0.13.2.tgz' },
+48 silly resolved     directories: {} } ]
+49 info install react-router@0.13.2 into d:\Source\page5of4\tools
+50 info installOne react-router@0.13.2
+51 verbose node_modules\react-router unbuild
+52 verbose tar unpack C:\Users\Jacob\AppData\Roaming\npm-cache\react-router\0.13.2\package.tgz
+53 silly lockFile 241813bd--tools-node-modules-react-router tar://d:\Source\page5of4\tools\node_modules\react-router
+54 verbose lock tar://d:\Source\page5of4\tools\node_modules\react-router C:\Users\Jacob\AppData\Roaming\npm-cache\241813bd--tools-node-modules-react-router.lock
+55 silly lockFile 0dde9d02--react-router-0-13-2-package-tgz tar://C:\Users\Jacob\AppData\Roaming\npm-cache\react-router\0.13.2\package.tgz
+56 verbose lock tar://C:\Users\Jacob\AppData\Roaming\npm-cache\react-router\0.13.2\package.tgz C:\Users\Jacob\AppData\Roaming\npm-cache\0dde9d02--react-router-0-13-2-package-tgz.lock
+57 silly gunzTarPerm modes [ '777', '666' ]
+58 silly gunzTarPerm extractEntry package.json
+59 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+60 silly gunzTarPerm extractEntry README.md
+61 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+62 silly gunzTarPerm extractEntry lib/Cancellation.js
+63 silly gunzTarPerm modified mode [ 'lib/Cancellation.js', 420, 438 ]
+64 silly gunzTarPerm extractEntry lib/Redirect.js
+65 silly gunzTarPerm modified mode [ 'lib/Redirect.js', 420, 438 ]
+66 silly gunzTarPerm extractEntry lib/Route.js
+67 silly gunzTarPerm modified mode [ 'lib/Route.js', 420, 438 ]
+68 silly gunzTarPerm extractEntry lib/ScrollHistory.js
+69 silly gunzTarPerm modified mode [ 'lib/ScrollHistory.js', 420, 438 ]
+70 silly gunzTarPerm extractEntry lib/PropTypes.js
+71 silly gunzTarPerm modified mode [ 'lib/PropTypes.js', 420, 438 ]
+72 silly gunzTarPerm extractEntry lib/TestUtils.js
+73 silly gunzTarPerm modified mode [ 'lib/TestUtils.js', 420, 438 ]
+74 silly gunzTarPerm extractEntry lib/History.js
+75 silly gunzTarPerm modified mode [ 'lib/History.js', 420, 438 ]
+76 silly gunzTarPerm extractEntry lib/runRouter.js
+77 silly gunzTarPerm modified mode [ 'lib/runRouter.js', 420, 438 ]
+78 silly gunzTarPerm extractEntry lib/isReactChildren.js
+79 silly gunzTarPerm modified mode [ 'lib/isReactChildren.js', 420, 438 ]
+80 silly gunzTarPerm extractEntry lib/index.js
+81 silly gunzTarPerm modified mode [ 'lib/index.js', 420, 438 ]
+82 silly gunzTarPerm extractEntry lib/PathUtils.js
+83 silly gunzTarPerm modified mode [ 'lib/PathUtils.js', 420, 438 ]
+84 silly gunzTarPerm extractEntry lib/createRouter.js
+85 silly gunzTarPerm modified mode [ 'lib/createRouter.js', 420, 438 ]
+86 silly gunzTarPerm extractEntry lib/Navigation.js
+87 silly gunzTarPerm modified mode [ 'lib/Navigation.js', 420, 438 ]
+88 silly gunzTarPerm extractEntry lib/createRoutesFromReactChildren.js
+89 silly gunzTarPerm modified mode [ 'lib/createRoutesFromReactChildren.js', 420, 438 ]
+90 silly gunzTarPerm extractEntry lib/Match.js
+91 silly gunzTarPerm modified mode [ 'lib/Match.js', 420, 438 ]
+92 silly gunzTarPerm extractEntry lib/getWindowScrollPosition.js
+93 silly gunzTarPerm modified mode [ 'lib/getWindowScrollPosition.js', 420, 438 ]
+94 silly gunzTarPerm extractEntry lib/State.js
+95 silly gunzTarPerm modified mode [ 'lib/State.js', 420, 438 ]
+96 silly gunzTarPerm extractEntry lib/supportsHistory.js
+97 silly gunzTarPerm modified mode [ 'lib/supportsHistory.js', 420, 438 ]
+98 silly gunzTarPerm extractEntry lib/Transition.js
+99 silly gunzTarPerm modified mode [ 'lib/Transition.js', 420, 438 ]
+100 silly gunzTarPerm extractEntry lib/components/ContextWrapper.js
+101 silly gunzTarPerm modified mode [ 'lib/components/ContextWrapper.js', 420, 438 ]
+102 silly gunzTarPerm extractEntry lib/components/DefaultRoute.js
+103 silly gunzTarPerm modified mode [ 'lib/components/DefaultRoute.js', 420, 438 ]
+104 silly gunzTarPerm extractEntry lib/components/Link.js
+105 silly gunzTarPerm modified mode [ 'lib/components/Link.js', 420, 438 ]
+106 silly gunzTarPerm extractEntry lib/components/NotFoundRoute.js
+107 silly gunzTarPerm modified mode [ 'lib/components/NotFoundRoute.js', 420, 438 ]
+108 silly gunzTarPerm extractEntry lib/components/Redirect.js
+109 silly gunzTarPerm modified mode [ 'lib/components/Redirect.js', 420, 438 ]
+110 silly gunzTarPerm extractEntry lib/components/Route.js
+111 silly gunzTarPerm modified mode [ 'lib/components/Route.js', 420, 438 ]
+112 silly gunzTarPerm extractEntry lib/components/RouteHandler.js
+113 silly gunzTarPerm modified mode [ 'lib/components/RouteHandler.js', 420, 438 ]
+114 silly gunzTarPerm extractEntry lib/behaviors/ImitateBrowserBehavior.js
+115 silly gunzTarPerm modified mode [ 'lib/behaviors/ImitateBrowserBehavior.js', 420, 438 ]
+116 silly gunzTarPerm extractEntry lib/behaviors/ScrollToTopBehavior.js
+117 silly gunzTarPerm modified mode [ 'lib/behaviors/ScrollToTopBehavior.js', 420, 438 ]
+118 silly gunzTarPerm extractEntry lib/locations/HashLocation.js
+119 silly gunzTarPerm modified mode [ 'lib/locations/HashLocation.js', 420, 438 ]
+120 silly gunzTarPerm extractEntry lib/locations/HistoryLocation.js
+121 silly gunzTarPerm modified mode [ 'lib/locations/HistoryLocation.js', 420, 438 ]
+122 silly gunzTarPerm extractEntry lib/locations/RefreshLocation.js
+123 silly gunzTarPerm modified mode [ 'lib/locations/RefreshLocation.js', 420, 438 ]
+124 silly gunzTarPerm extractEntry lib/locations/StaticLocation.js
+125 silly gunzTarPerm modified mode [ 'lib/locations/StaticLocation.js', 420, 438 ]
+126 silly gunzTarPerm extractEntry lib/locations/TestLocation.js
+127 silly gunzTarPerm modified mode [ 'lib/locations/TestLocation.js', 420, 438 ]
+128 silly gunzTarPerm extractEntry lib/actions/LocationActions.js
+129 silly gunzTarPerm modified mode [ 'lib/actions/LocationActions.js', 420, 438 ]
+130 silly lockFile 241813bd--tools-node-modules-react-router tar://d:\Source\page5of4\tools\node_modules\react-router
+131 silly lockFile 241813bd--tools-node-modules-react-router tar://d:\Source\page5of4\tools\node_modules\react-router
+132 silly lockFile 0dde9d02--react-router-0-13-2-package-tgz tar://C:\Users\Jacob\AppData\Roaming\npm-cache\react-router\0.13.2\package.tgz
+133 silly lockFile 0dde9d02--react-router-0-13-2-package-tgz tar://C:\Users\Jacob\AppData\Roaming\npm-cache\react-router\0.13.2\package.tgz
+134 info preinstall react-router@0.13.2
+135 verbose readDependencies using package.json deps
+136 verbose readDependencies using package.json deps
+137 verbose cache add [ 'qs@2.4.1', null ]
+138 verbose cache add name=undefined spec="qs@2.4.1" args=["qs@2.4.1",null]
+139 verbose parsed url { protocol: null,
+139 verbose parsed url   slashes: null,
+139 verbose parsed url   auth: null,
+139 verbose parsed url   host: null,
+139 verbose parsed url   port: null,
+139 verbose parsed url   hostname: null,
+139 verbose parsed url   hash: null,
+139 verbose parsed url   search: null,
+139 verbose parsed url   query: null,
+139 verbose parsed url   pathname: 'qs@2.4.1',
+139 verbose parsed url   path: 'qs@2.4.1',
+139 verbose parsed url   href: 'qs@2.4.1' }
+140 verbose cache add [ 'classnames@1.1.x', null ]
+141 verbose cache add name=undefined spec="classnames@1.1.x" args=["classnames@1.1.x",null]
+142 verbose parsed url { protocol: null,
+142 verbose parsed url   slashes: null,
+142 verbose parsed url   auth: null,
+142 verbose parsed url   host: null,
+142 verbose parsed url   port: null,
+142 verbose parsed url   hostname: null,
+142 verbose parsed url   hash: null,
+142 verbose parsed url   search: null,
+142 verbose parsed url   query: null,
+142 verbose parsed url   pathname: 'classnames@1.1.x',
+142 verbose parsed url   path: 'classnames@1.1.x',
+142 verbose parsed url   href: 'classnames@1.1.x' }
+143 verbose cache add [ 'object-assign@^2.0.0', null ]
+144 verbose cache add name=undefined spec="object-assign@^2.0.0" args=["object-assign@^2.0.0",null]
+145 verbose parsed url { protocol: null,
+145 verbose parsed url   slashes: null,
+145 verbose parsed url   auth: null,
+145 verbose parsed url   host: null,
+145 verbose parsed url   port: null,
+145 verbose parsed url   hostname: null,
+145 verbose parsed url   hash: null,
+145 verbose parsed url   search: null,
+145 verbose parsed url   query: null,
+145 verbose parsed url   pathname: 'object-assign@^2.0.0',
+145 verbose parsed url   path: 'object-assign@^2.0.0',
+145 verbose parsed url   href: 'object-assign@^2.0.0' }
+146 verbose cache add name="qs" spec="2.4.1" args=["qs","2.4.1"]
+147 verbose parsed url { protocol: null,
+147 verbose parsed url   slashes: null,
+147 verbose parsed url   auth: null,
+147 verbose parsed url   host: null,
+147 verbose parsed url   port: null,
+147 verbose parsed url   hostname: null,
+147 verbose parsed url   hash: null,
+147 verbose parsed url   search: null,
+147 verbose parsed url   query: null,
+147 verbose parsed url   pathname: '2.4.1',
+147 verbose parsed url   path: '2.4.1',
+147 verbose parsed url   href: '2.4.1' }
+148 verbose addNamed [ 'qs', '2.4.1' ]
+149 verbose addNamed [ '2.4.1', '2.4.1' ]
+150 silly lockFile 7522a7fe-qs-2-4-1 qs@2.4.1
+151 verbose lock qs@2.4.1 C:\Users\Jacob\AppData\Roaming\npm-cache\7522a7fe-qs-2-4-1.lock
+152 verbose cache add name="classnames" spec="1.1.x" args=["classnames","1.1.x"]
+153 verbose parsed url { protocol: null,
+153 verbose parsed url   slashes: null,
+153 verbose parsed url   auth: null,
+153 verbose parsed url   host: null,
+153 verbose parsed url   port: null,
+153 verbose parsed url   hostname: null,
+153 verbose parsed url   hash: null,
+153 verbose parsed url   search: null,
+153 verbose parsed url   query: null,
+153 verbose parsed url   pathname: '1.1.x',
+153 verbose parsed url   path: '1.1.x',
+153 verbose parsed url   href: '1.1.x' }
+154 verbose addNamed [ 'classnames', '1.1.x' ]
+155 verbose addNamed [ null, '>=1.1.0-0 <1.2.0-0' ]
+156 silly lockFile cd5a9ab1-classnames-1-1-x classnames@1.1.x
+157 verbose lock classnames@1.1.x C:\Users\Jacob\AppData\Roaming\npm-cache\cd5a9ab1-classnames-1-1-x.lock
+158 verbose cache add name="object-assign" spec="^2.0.0" args=["object-assign","^2.0.0"]
+159 verbose parsed url { protocol: null,
+159 verbose parsed url   slashes: null,
+159 verbose parsed url   auth: null,
+159 verbose parsed url   host: null,
+159 verbose parsed url   port: null,
+159 verbose parsed url   hostname: null,
+159 verbose parsed url   hash: null,
+159 verbose parsed url   search: null,
+159 verbose parsed url   query: null,
+159 verbose parsed url   pathname: '^2.0.0',
+159 verbose parsed url   path: '^2.0.0',
+159 verbose parsed url   href: '^2.0.0' }
+160 verbose addNamed [ 'object-assign', '^2.0.0' ]
+161 verbose addNamed [ null, '>=2.0.0-0 <3.0.0-0' ]
+162 silly lockFile 5a30528b-object-assign-2-0-0 object-assign@^2.0.0
+163 verbose lock object-assign@^2.0.0 C:\Users\Jacob\AppData\Roaming\npm-cache\5a30528b-object-assign-2-0-0.lock
+164 silly addNameRange { name: 'classnames',
+164 silly addNameRange   range: '>=1.1.0-0 <1.2.0-0',
+164 silly addNameRange   hasData: false }
+165 silly addNameRange { name: 'object-assign',
+165 silly addNameRange   range: '>=2.0.0-0 <3.0.0-0',
+165 silly addNameRange   hasData: false }
+166 verbose request where is /classnames
+167 verbose request registry https://registry.npmjs.org/
+168 verbose url raw /classnames
+169 verbose url resolving [ 'https://registry.npmjs.org/', './classnames' ]
+170 verbose url resolved https://registry.npmjs.org/classnames
+171 verbose request where is https://registry.npmjs.org/classnames
+172 info trying registry request attempt 1 at 12:46:11
+173 http GET https://registry.npmjs.org/classnames
+174 verbose request where is /qs
+175 verbose request registry https://registry.npmjs.org/
+176 verbose url raw /qs
+177 verbose url resolving [ 'https://registry.npmjs.org/', './qs' ]
+178 verbose url resolved https://registry.npmjs.org/qs
+179 verbose request where is https://registry.npmjs.org/qs
+180 info trying registry request attempt 1 at 12:46:11
+181 verbose etag "55L0NJ3W8H57LJL7K8J8XWB1"
+182 http GET https://registry.npmjs.org/qs
+183 verbose request where is /object-assign
+184 verbose request registry https://registry.npmjs.org/
+185 verbose url raw /object-assign
+186 verbose url resolving [ 'https://registry.npmjs.org/', './object-assign' ]
+187 verbose url resolved https://registry.npmjs.org/object-assign
+188 verbose request where is https://registry.npmjs.org/object-assign
+189 info trying registry request attempt 1 at 12:46:11
+190 verbose etag "9LB2IE88E116RW1XRHOS8EI3U"
+191 http GET https://registry.npmjs.org/object-assign
+192 http 200 https://registry.npmjs.org/classnames
+193 silly registry.get cb [ 200,
+193 silly registry.get   { date: 'Thu, 02 Apr 2015 16:47:04 GMT',
+193 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+193 silly registry.get     etag: '"A44PWUGBEIODTHPT15726HPP3"',
+193 silly registry.get     'content-type': 'application/json',
+193 silly registry.get     'cache-control': 'max-age=60',
+193 silly registry.get     'content-length': '10222',
+193 silly registry.get     'accept-ranges': 'bytes',
+193 silly registry.get     via: '1.1 varnish',
+193 silly registry.get     age: '33',
+193 silly registry.get     'x-served-by': 'cache-iad2122-IAD',
+193 silly registry.get     'x-cache': 'HIT',
+193 silly registry.get     'x-cache-hits': '1',
+193 silly registry.get     'x-timer': 'S1427993224.948782,VS0,VE0',
+193 silly registry.get     vary: 'Accept',
+193 silly registry.get     'keep-alive': 'timeout=10, max=50',
+193 silly registry.get     connection: 'Keep-Alive' } ]
+194 silly addNameRange number 2 { name: 'classnames',
+194 silly addNameRange   range: '>=1.1.0-0 <1.2.0-0',
+194 silly addNameRange   hasData: true }
+195 silly addNameRange versions [ 'classnames',
+195 silly addNameRange   [ '1.0.0', '1.1.0', '1.1.1', '1.1.2', '1.1.3', '1.1.4', '1.2.0' ] ]
+196 verbose addNamed [ 'classnames', '1.1.4' ]
+197 verbose addNamed [ '1.1.4', '1.1.4' ]
+198 silly lockFile e30b59f5-classnames-1-1-4 classnames@1.1.4
+199 verbose lock classnames@1.1.4 C:\Users\Jacob\AppData\Roaming\npm-cache\e30b59f5-classnames-1-1-4.lock
+200 http 304 https://registry.npmjs.org/qs
+201 silly registry.get cb [ 304,
+201 silly registry.get   { date: 'Thu, 02 Apr 2015 16:47:04 GMT',
+201 silly registry.get     server: 'Apache',
+201 silly registry.get     via: '1.1 varnish',
+201 silly registry.get     'last-modified': 'Thu, 02 Apr 2015 16:47:04 GMT',
+201 silly registry.get     'cache-control': 'max-age=60',
+201 silly registry.get     etag: '"55L0NJ3W8H57LJL7K8J8XWB1"',
+201 silly registry.get     age: '20',
+201 silly registry.get     'x-served-by': 'cache-iad2123-IAD',
+201 silly registry.get     'x-cache': 'HIT',
+201 silly registry.get     'x-cache-hits': '1',
+201 silly registry.get     'x-timer': 'S1427993224.958967,VS0,VE0',
+201 silly registry.get     vary: 'Accept',
+201 silly registry.get     'content-length': '0',
+201 silly registry.get     'keep-alive': 'timeout=10, max=50',
+201 silly registry.get     connection: 'Keep-Alive' } ]
+202 verbose etag https://registry.npmjs.org/qs from cache
+203 http 304 https://registry.npmjs.org/object-assign
+204 silly registry.get cb [ 304,
+204 silly registry.get   { date: 'Thu, 02 Apr 2015 16:47:04 GMT',
+204 silly registry.get     server: 'Apache',
+204 silly registry.get     via: '1.1 varnish',
+204 silly registry.get     'last-modified': 'Thu, 02 Apr 2015 16:47:04 GMT',
+204 silly registry.get     'cache-control': 'max-age=60',
+204 silly registry.get     etag: '"9LB2IE88E116RW1XRHOS8EI3U"',
+204 silly registry.get     age: '20',
+204 silly registry.get     'x-served-by': 'cache-iad2137-IAD',
+204 silly registry.get     'x-cache': 'HIT',
+204 silly registry.get     'x-cache-hits': '1',
+204 silly registry.get     'x-timer': 'S1427993224.965475,VS0,VE0',
+204 silly registry.get     vary: 'Accept',
+204 silly registry.get     'content-length': '0',
+204 silly registry.get     'keep-alive': 'timeout=10, max=50',
+204 silly registry.get     connection: 'Keep-Alive' } ]
+205 verbose etag https://registry.npmjs.org/object-assign from cache
+206 silly lockFile 1a06c8d4--classnames-classnames-1-1-4-tgz https://registry.npmjs.org/classnames/-/classnames-1.1.4.tgz
+207 verbose lock https://registry.npmjs.org/classnames/-/classnames-1.1.4.tgz C:\Users\Jacob\AppData\Roaming\npm-cache\1a06c8d4--classnames-classnames-1-1-4-tgz.lock
+208 verbose addRemoteTarball [ 'https://registry.npmjs.org/classnames/-/classnames-1.1.4.tgz',
+208 verbose addRemoteTarball   '47f30e55b8608dedd74fd2b39830c4d7716d4ae3' ]
+209 info retry fetch attempt 1 at 12:46:12
+210 verbose fetch to= C:\Users\Jacob\AppData\Local\Temp\npm-17716-O0s_tYFH\registry.npmjs.org\classnames\-\classnames-1.1.4.tgz
+211 http GET https://registry.npmjs.org/classnames/-/classnames-1.1.4.tgz
+212 silly addNameRange number 2 { name: 'object-assign',
+212 silly addNameRange   range: '>=2.0.0-0 <3.0.0-0',
+212 silly addNameRange   hasData: true }
+213 silly addNameRange versions [ 'object-assign',
+213 silly addNameRange   [ '0.1.0',
+213 silly addNameRange     '0.1.1',
+213 silly addNameRange     '0.1.2',
+213 silly addNameRange     '0.2.0',
+213 silly addNameRange     '0.2.1',
+213 silly addNameRange     '0.2.2',
+213 silly addNameRange     '0.3.0',
+213 silly addNameRange     '0.3.1',
+213 silly addNameRange     '0.4.0',
+213 silly addNameRange     '1.0.0',
+213 silly addNameRange     '2.0.0' ] ]
+214 verbose addNamed [ 'object-assign', '2.0.0' ]
+215 verbose addNamed [ '2.0.0', '2.0.0' ]
+216 silly lockFile 806ee24e-object-assign-2-0-0 object-assign@2.0.0
+217 verbose lock object-assign@2.0.0 C:\Users\Jacob\AppData\Roaming\npm-cache\806ee24e-object-assign-2-0-0.lock
+218 silly lockFile 806ee24e-object-assign-2-0-0 object-assign@2.0.0
+219 silly lockFile 806ee24e-object-assign-2-0-0 object-assign@2.0.0
+220 silly lockFile 5a30528b-object-assign-2-0-0 object-assign@^2.0.0
+221 silly lockFile 5a30528b-object-assign-2-0-0 object-assign@^2.0.0
+222 silly lockFile 7522a7fe-qs-2-4-1 qs@2.4.1
+223 silly lockFile 7522a7fe-qs-2-4-1 qs@2.4.1
+224 http 200 https://registry.npmjs.org/classnames/-/classnames-1.1.4.tgz
+225 silly lockFile 1a06c8d4--classnames-classnames-1-1-4-tgz https://registry.npmjs.org/classnames/-/classnames-1.1.4.tgz
+226 silly lockFile 1a06c8d4--classnames-classnames-1-1-4-tgz https://registry.npmjs.org/classnames/-/classnames-1.1.4.tgz
+227 silly lockFile e30b59f5-classnames-1-1-4 classnames@1.1.4
+228 silly lockFile e30b59f5-classnames-1-1-4 classnames@1.1.4
+229 silly lockFile cd5a9ab1-classnames-1-1-x classnames@1.1.x
+230 silly lockFile cd5a9ab1-classnames-1-1-x classnames@1.1.x
+231 silly resolved [ { name: 'object-assign',
+231 silly resolved     version: '2.0.0',
+231 silly resolved     description: 'ES6 Object.assign() ponyfill',
+231 silly resolved     license: 'MIT',
+231 silly resolved     repository:
+231 silly resolved      { type: 'git',
+231 silly resolved        url: 'git://github.com/sindresorhus/object-assign' },
+231 silly resolved     author:
+231 silly resolved      { name: 'Sindre Sorhus',
+231 silly resolved        email: 'sindresorhus@gmail.com',
+231 silly resolved        url: 'http://sindresorhus.com' },
+231 silly resolved     engines: { node: '>=0.10.0' },
+231 silly resolved     scripts: { test: 'mocha' },
+231 silly resolved     files: [ 'index.js' ],
+231 silly resolved     keywords:
+231 silly resolved      [ 'object',
+231 silly resolved        'assign',
+231 silly resolved        'extend',
+231 silly resolved        'properties',
+231 silly resolved        'es6',
+231 silly resolved        'ecmascript',
+231 silly resolved        'harmony',
+231 silly resolved        'ponyfill',
+231 silly resolved        'prollyfill',
+231 silly resolved        'polyfill',
+231 silly resolved        'shim',
+231 silly resolved        'browser' ],
+231 silly resolved     devDependencies: { mocha: '*' },
+231 silly resolved     readme: '# object-assign [![Build Status](https://travis-ci.org/sindresorhus/object-assign.svg?branch=master)](https://travis-ci.org/sindresorhus/object-assign)\n\n> ES6 [`Object.assign()`](http://www.2ality.com/2014/01/object-assign.html) ponyfill\n\n> Ponyfill: A polyfill that doesn\'t overwrite the native method\n\n\n## Install\n\n```sh\n$ npm install --save object-assign\n```\n\n\n## Usage\n\n```js\nvar objectAssign = require(\'object-assign\');\n\nobjectAssign({foo: 0}, {bar: 1});\n//=> {foo: 0, bar: 1}\n\n// multiple sources\nobjectAssign({foo: 0}, {bar: 1}, {baz: 2});\n//=> {foo: 0, bar: 1, baz: 2}\n\n// overwrites equal keys\nobjectAssign({foo: 0}, {foo: 1}, {foo: 2});\n//=> {foo: 2}\n\n// ignores null and undefined sources\nobjectAssign({foo: 0}, null, {bar: 1}, undefined);\n//=> {foo: 0, bar: 1}\n```\n\n\n## API\n\n### objectAssign(target, source, [source, ...])\n\nAssigns enumerable own properties of `source` objects to the `target` object and returns the `target` object. Additional `source` objects will overwrite previous ones.\n\n\n## Resources\n\n- [ES6 spec - Object.assign](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-object.assign)\n\n\n## License\n\nMIT © [Sindre Sorhus](http://sindresorhus.com)\n',
+231 silly resolved     readmeFilename: 'readme.md',
+231 silly resolved     bugs: { url: 'https://github.com/sindresorhus/object-assign/issues' },
+231 silly resolved     homepage: 'https://github.com/sindresorhus/object-assign',
+231 silly resolved     _id: 'object-assign@2.0.0',
+231 silly resolved     _shasum: 'f8309b09083b01261ece3ef7373f2b57b8dd7042',
+231 silly resolved     _from: 'object-assign@^2.0.0',
+231 silly resolved     _resolved: 'https://registry.npmjs.org/object-assign/-/object-assign-2.0.0.tgz' },
+231 silly resolved   { name: 'qs',
+231 silly resolved     version: '2.4.1',
+231 silly resolved     description: 'A querystring parser that supports nesting and arrays, with a depth limit',
+231 silly resolved     homepage: 'https://github.com/hapijs/qs',
+231 silly resolved     main: 'index.js',
+231 silly resolved     dependencies: {},
+231 silly resolved     devDependencies: { code: '1.x.x', lab: '5.x.x' },
+231 silly resolved     scripts: { test: 'make test-cov' },
+231 silly resolved     repository: { type: 'git', url: 'https://github.com/hapijs/qs.git' },
+231 silly resolved     keywords: [ 'querystring', 'qs' ],
+231 silly resolved     licenses: [ [Object] ],
+231 silly resolved     gitHead: '58c6540418954867822c1af3e45fb4c26708b07e',
+231 silly resolved     bugs: { url: 'https://github.com/hapijs/qs/issues' },
+231 silly resolved     _id: 'qs@2.4.1',
+231 silly resolved     _shasum: '68cbaea971013426a80c1404fad6b1a6b1175245',
+231 silly resolved     _from: 'qs@2.4.1',
+231 silly resolved     _npmVersion: '2.6.1',
+231 silly resolved     _nodeVersion: '0.10.36',
+231 silly resolved     _npmUser: { name: 'nlf', email: 'quitlahok@gmail.com' },
+231 silly resolved     maintainers: [ [Object], [Object] ],
+231 silly resolved     dist:
+231 silly resolved      { shasum: '68cbaea971013426a80c1404fad6b1a6b1175245',
+231 silly resolved        tarball: 'http://registry.npmjs.org/qs/-/qs-2.4.1.tgz' },
+231 silly resolved     directories: {},
+231 silly resolved     _resolved: 'https://registry.npmjs.org/qs/-/qs-2.4.1.tgz',
+231 silly resolved     readme: 'ERROR: No README data found!' },
+231 silly resolved   { name: 'classnames',
+231 silly resolved     version: '1.1.4',
+231 silly resolved     description: 'A simple utility for conditionally joining classNames together',
+231 silly resolved     main: 'index.js',
+231 silly resolved     author: { name: 'Jed Watson' },
+231 silly resolved     license: 'MIT',
+231 silly resolved     repository:
+231 silly resolved      { type: 'git',
+231 silly resolved        url: 'https://github.com/JedWatson/classnames.git' },
+231 silly resolved     scripts: { test: 'mocha tests.js' },
+231 silly resolved     keywords:
+231 silly resolved      [ 'react',
+231 silly resolved        'css',
+231 silly resolved        'classes',
+231 silly resolved        'classname',
+231 silly resolved        'classnames',
+231 silly resolved        'util',
+231 silly resolved        'utility' ],
+231 silly resolved     devDependencies: { mocha: '^2.1.0' },
+231 silly resolved     gitHead: '1270d5e9b5470fe2faab2a9759cfb66811912ce5',
+231 silly resolved     bugs: { url: 'https://github.com/JedWatson/classnames/issues' },
+231 silly resolved     homepage: 'https://github.com/JedWatson/classnames',
+231 silly resolved     _id: 'classnames@1.1.4',
+231 silly resolved     _shasum: '47f30e55b8608dedd74fd2b39830c4d7716d4ae3',
+231 silly resolved     _from: 'classnames@1.1.x',
+231 silly resolved     _npmVersion: '1.4.28',
+231 silly resolved     _npmUser: { name: 'jedwatson', email: 'jed.watson@me.com' },
+231 silly resolved     maintainers: [ [Object] ],
+231 silly resolved     dist:
+231 silly resolved      { shasum: '47f30e55b8608dedd74fd2b39830c4d7716d4ae3',
+231 silly resolved        tarball: 'http://registry.npmjs.org/classnames/-/classnames-1.1.4.tgz' },
+231 silly resolved     directories: {},
+231 silly resolved     _resolved: 'https://registry.npmjs.org/classnames/-/classnames-1.1.4.tgz' } ]
+232 info install object-assign@2.0.0 into d:\Source\page5of4\tools\node_modules\react-router
+233 info install qs@2.4.1 into d:\Source\page5of4\tools\node_modules\react-router
+234 info install classnames@1.1.4 into d:\Source\page5of4\tools\node_modules\react-router
+235 info installOne object-assign@2.0.0
+236 info installOne qs@2.4.1
+237 info installOne classnames@1.1.4
+238 verbose node_modules\react-router\node_modules\object-assign unbuild
+239 verbose node_modules\react-router\node_modules\qs unbuild
+240 verbose tar unpack C:\Users\Jacob\AppData\Roaming\npm-cache\object-assign\2.0.0\package.tgz
+241 silly lockFile 7885fad9-outer-node-modules-object-assign tar://d:\Source\page5of4\tools\node_modules\react-router\node_modules\object-assign
+242 verbose lock tar://d:\Source\page5of4\tools\node_modules\react-router\node_modules\object-assign C:\Users\Jacob\AppData\Roaming\npm-cache\7885fad9-outer-node-modules-object-assign.lock
+243 silly lockFile df339a05--object-assign-2-0-0-package-tgz tar://C:\Users\Jacob\AppData\Roaming\npm-cache\object-assign\2.0.0\package.tgz
+244 verbose lock tar://C:\Users\Jacob\AppData\Roaming\npm-cache\object-assign\2.0.0\package.tgz C:\Users\Jacob\AppData\Roaming\npm-cache\df339a05--object-assign-2-0-0-package-tgz.lock
+245 verbose tar unpack C:\Users\Jacob\AppData\Roaming\npm-cache\qs\2.4.1\package.tgz
+246 silly lockFile 2a83f910-les-react-router-node-modules-qs tar://d:\Source\page5of4\tools\node_modules\react-router\node_modules\qs
+247 verbose lock tar://d:\Source\page5of4\tools\node_modules\react-router\node_modules\qs C:\Users\Jacob\AppData\Roaming\npm-cache\2a83f910-les-react-router-node-modules-qs.lock
+248 silly lockFile 8fb2f4ab-g-npm-cache-qs-2-4-1-package-tgz tar://C:\Users\Jacob\AppData\Roaming\npm-cache\qs\2.4.1\package.tgz
+249 verbose lock tar://C:\Users\Jacob\AppData\Roaming\npm-cache\qs\2.4.1\package.tgz C:\Users\Jacob\AppData\Roaming\npm-cache\8fb2f4ab-g-npm-cache-qs-2-4-1-package-tgz.lock
+250 verbose node_modules\react-router\node_modules\classnames unbuild
+251 silly gunzTarPerm modes [ '777', '666' ]
+252 silly gunzTarPerm modes [ '777', '666' ]
+253 verbose tar unpack C:\Users\Jacob\AppData\Roaming\npm-cache\classnames\1.1.4\package.tgz
+254 silly lockFile 1691861a-t-router-node-modules-classnames tar://d:\Source\page5of4\tools\node_modules\react-router\node_modules\classnames
+255 verbose lock tar://d:\Source\page5of4\tools\node_modules\react-router\node_modules\classnames C:\Users\Jacob\AppData\Roaming\npm-cache\1691861a-t-router-node-modules-classnames.lock
+256 silly lockFile 489a7d41-che-classnames-1-1-4-package-tgz tar://C:\Users\Jacob\AppData\Roaming\npm-cache\classnames\1.1.4\package.tgz
+257 verbose lock tar://C:\Users\Jacob\AppData\Roaming\npm-cache\classnames\1.1.4\package.tgz C:\Users\Jacob\AppData\Roaming\npm-cache\489a7d41-che-classnames-1-1-4-package-tgz.lock
+258 silly gunzTarPerm modes [ '777', '666' ]
+259 silly gunzTarPerm extractEntry package.json
+260 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+261 silly gunzTarPerm extractEntry .npmignore
+262 silly gunzTarPerm modified mode [ '.npmignore', 420, 438 ]
+263 silly gunzTarPerm extractEntry README.md
+264 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+265 silly gunzTarPerm extractEntry LICENSE
+266 silly gunzTarPerm modified mode [ 'LICENSE', 420, 438 ]
+267 silly gunzTarPerm extractEntry index.js
+268 silly gunzTarPerm modified mode [ 'index.js', 420, 438 ]
+269 silly gunzTarPerm extractEntry tests.js
+270 silly gunzTarPerm modified mode [ 'tests.js', 420, 438 ]
+271 silly gunzTarPerm extractEntry .editorconfig
+272 silly gunzTarPerm modified mode [ '.editorconfig', 420, 438 ]
+273 silly gunzTarPerm extractEntry package.json
+274 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+275 silly gunzTarPerm extractEntry index.js
+276 silly gunzTarPerm modified mode [ 'index.js', 420, 438 ]
+277 silly gunzTarPerm extractEntry readme.md
+278 silly gunzTarPerm modified mode [ 'readme.md', 420, 438 ]
+279 silly gunzTarPerm extractEntry package.json
+280 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+281 silly gunzTarPerm extractEntry .npmignore
+282 silly gunzTarPerm modified mode [ '.npmignore', 420, 438 ]
+283 silly gunzTarPerm extractEntry README.md
+284 silly gunzTarPerm modified mode [ 'README.md', 493, 511 ]
+285 silly gunzTarPerm extractEntry LICENSE
+286 silly gunzTarPerm modified mode [ 'LICENSE', 493, 511 ]
+287 silly gunzTarPerm extractEntry index.js
+288 silly gunzTarPerm modified mode [ 'index.js', 420, 438 ]
+289 silly gunzTarPerm extractEntry CHANGELOG.md
+290 silly gunzTarPerm modified mode [ 'CHANGELOG.md', 420, 438 ]
+291 silly gunzTarPerm extractEntry CONTRIBUTING.md
+292 silly gunzTarPerm modified mode [ 'CONTRIBUTING.md', 420, 438 ]
+293 silly gunzTarPerm extractEntry Makefile
+294 silly gunzTarPerm modified mode [ 'Makefile', 420, 438 ]
+295 silly gunzTarPerm extractEntry .jshintignore
+296 silly gunzTarPerm modified mode [ '.jshintignore', 420, 438 ]
+297 silly gunzTarPerm extractEntry .jshintrc
+298 silly gunzTarPerm modified mode [ '.jshintrc', 420, 438 ]
+299 silly gunzTarPerm extractEntry lib/index.js
+300 silly gunzTarPerm modified mode [ 'lib/index.js', 493, 511 ]
+301 silly gunzTarPerm extractEntry lib/parse.js
+302 silly gunzTarPerm modified mode [ 'lib/parse.js', 493, 511 ]
+303 silly gunzTarPerm extractEntry lib/stringify.js
+304 silly gunzTarPerm modified mode [ 'lib/stringify.js', 493, 511 ]
+305 silly gunzTarPerm extractEntry lib/utils.js
+306 silly gunzTarPerm modified mode [ 'lib/utils.js', 493, 511 ]
+307 silly gunzTarPerm extractEntry .travis.yml
+308 silly gunzTarPerm modified mode [ '.travis.yml', 420, 438 ]
+309 silly gunzTarPerm extractEntry test/parse.js
+310 silly gunzTarPerm modified mode [ 'test/parse.js', 493, 511 ]
+311 silly gunzTarPerm extractEntry test/stringify.js
+312 silly gunzTarPerm modified mode [ 'test/stringify.js', 493, 511 ]
+313 silly lockFile 7885fad9-outer-node-modules-object-assign tar://d:\Source\page5of4\tools\node_modules\react-router\node_modules\object-assign
+314 silly lockFile 7885fad9-outer-node-modules-object-assign tar://d:\Source\page5of4\tools\node_modules\react-router\node_modules\object-assign
+315 silly lockFile df339a05--object-assign-2-0-0-package-tgz tar://C:\Users\Jacob\AppData\Roaming\npm-cache\object-assign\2.0.0\package.tgz
+316 silly lockFile df339a05--object-assign-2-0-0-package-tgz tar://C:\Users\Jacob\AppData\Roaming\npm-cache\object-assign\2.0.0\package.tgz
+317 info preinstall object-assign@2.0.0
+318 verbose readDependencies using package.json deps
+319 verbose readDependencies using package.json deps
+320 silly resolved []
+321 verbose about to build d:\Source\page5of4\tools\node_modules\react-router\node_modules\object-assign
+322 info build d:\Source\page5of4\tools\node_modules\react-router\node_modules\object-assign
+323 verbose linkStuff [ false,
+323 verbose linkStuff   false,
+323 verbose linkStuff   false,
+323 verbose linkStuff   'd:\\Source\\page5of4\\tools\\node_modules\\react-router\\node_modules' ]
+324 info linkStuff object-assign@2.0.0
+325 verbose linkBins object-assign@2.0.0
+326 verbose linkMans object-assign@2.0.0
+327 verbose rebuildBundles object-assign@2.0.0
+328 info install object-assign@2.0.0
+329 silly gunzTarPerm extractEntry bower.json
+330 silly gunzTarPerm modified mode [ 'bower.json', 436, 438 ]
+331 info postinstall object-assign@2.0.0
+332 silly lockFile 1691861a-t-router-node-modules-classnames tar://d:\Source\page5of4\tools\node_modules\react-router\node_modules\classnames
+333 silly lockFile 1691861a-t-router-node-modules-classnames tar://d:\Source\page5of4\tools\node_modules\react-router\node_modules\classnames
+334 silly lockFile 489a7d41-che-classnames-1-1-4-package-tgz tar://C:\Users\Jacob\AppData\Roaming\npm-cache\classnames\1.1.4\package.tgz
+335 silly lockFile 489a7d41-che-classnames-1-1-4-package-tgz tar://C:\Users\Jacob\AppData\Roaming\npm-cache\classnames\1.1.4\package.tgz
+336 info preinstall classnames@1.1.4
+337 verbose readDependencies using package.json deps
+338 verbose readDependencies using package.json deps
+339 silly resolved []
+340 verbose about to build d:\Source\page5of4\tools\node_modules\react-router\node_modules\classnames
+341 info build d:\Source\page5of4\tools\node_modules\react-router\node_modules\classnames
+342 verbose linkStuff [ false,
+342 verbose linkStuff   false,
+342 verbose linkStuff   false,
+342 verbose linkStuff   'd:\\Source\\page5of4\\tools\\node_modules\\react-router\\node_modules' ]
+343 info linkStuff classnames@1.1.4
+344 verbose linkBins classnames@1.1.4
+345 verbose linkMans classnames@1.1.4
+346 verbose rebuildBundles classnames@1.1.4
+347 info install classnames@1.1.4
+348 info postinstall classnames@1.1.4
+349 silly lockFile 2a83f910-les-react-router-node-modules-qs tar://d:\Source\page5of4\tools\node_modules\react-router\node_modules\qs
+350 silly lockFile 2a83f910-les-react-router-node-modules-qs tar://d:\Source\page5of4\tools\node_modules\react-router\node_modules\qs
+351 silly lockFile 8fb2f4ab-g-npm-cache-qs-2-4-1-package-tgz tar://C:\Users\Jacob\AppData\Roaming\npm-cache\qs\2.4.1\package.tgz
+352 silly lockFile 8fb2f4ab-g-npm-cache-qs-2-4-1-package-tgz tar://C:\Users\Jacob\AppData\Roaming\npm-cache\qs\2.4.1\package.tgz
+353 info preinstall qs@2.4.1
+354 verbose readDependencies using package.json deps
+355 verbose readDependencies using package.json deps
+356 silly resolved []
+357 verbose about to build d:\Source\page5of4\tools\node_modules\react-router\node_modules\qs
+358 info build d:\Source\page5of4\tools\node_modules\react-router\node_modules\qs
+359 verbose linkStuff [ false,
+359 verbose linkStuff   false,
+359 verbose linkStuff   false,
+359 verbose linkStuff   'd:\\Source\\page5of4\\tools\\node_modules\\react-router\\node_modules' ]
+360 info linkStuff qs@2.4.1
+361 verbose linkBins qs@2.4.1
+362 verbose linkMans qs@2.4.1
+363 verbose rebuildBundles qs@2.4.1
+364 info install qs@2.4.1
+365 info postinstall qs@2.4.1
+366 verbose about to build d:\Source\page5of4\tools\node_modules\react-router
+367 info build d:\Source\page5of4\tools\node_modules\react-router
+368 verbose linkStuff [ false,
+368 verbose linkStuff   false,
+368 verbose linkStuff   false,
+368 verbose linkStuff   'd:\\Source\\page5of4\\tools\\node_modules' ]
+369 info linkStuff react-router@0.13.2
+370 verbose linkBins react-router@0.13.2
+371 verbose linkMans react-router@0.13.2
+372 verbose rebuildBundles react-router@0.13.2
+373 verbose rebuildBundles [ 'classnames', 'object-assign', 'qs' ]
+374 info install react-router@0.13.2
+375 info postinstall react-router@0.13.2
+376 verbose readDependencies using package.json deps
+377 verbose already installed skipping react@0.13.x d:\Source\page5of4\tools
+378 silly resolved []
+379 error peerinvalid The package react does not satisfy its siblings' peerDependencies requirements!
+379 error peerinvalid Peer react-addons@0.9.1-deprecated wants react@>= 0.9.0
+379 error peerinvalid Peer react-router@0.13.2 wants react@0.13.x
+380 error System Windows_NT 6.2.9200
+381 error command "c:\\Program Files (x86)\\nodejs\\node.exe" "c:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "react-router" "--save"
+382 error cwd d:\Source\page5of4\tools
+383 error node -v v0.10.35
+384 error npm -v 1.4.28
+385 error code EPEERINVALID
+386 verbose exit [ 1, true ]

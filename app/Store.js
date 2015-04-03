@@ -8,7 +8,12 @@ module.exports = flux.createStore({
   actions: [
     actions.refreshCatalog,
     actions.addInterest,
-    actions.sendInterest
+    actions.interested,
+    actions.markAsAvailable,
+    actions.markAsPaid,
+    actions.markAsSold,
+    actions.markAsPublic,
+    actions.markAsPrivate
   ],
 
   refreshCatalog: function(data) {
@@ -22,10 +27,40 @@ module.exports = flux.createStore({
     this.emitChange();
   },
 
-  sendInterest: function(interest) {
-    var item = _(this.catalog).where({ number: interest.number }).first();
+  interested: function(item) {
+    var item = _(this.catalog).where({ number: item.number }).map(function(i) {
+      return _.extend(i, item); 
+    }).first();
     item.pendingInterest = null;
+    item.youAreInterested = true;
     this.emitChange();
+  },
+
+  updateItem: function(item) {
+    var item = _(this.catalog).where({ number: item.number }).map(function(i) {
+      return _.extend(i, item); 
+    });
+    this.emitChange();
+  },
+
+  markAsAvailable: function(item) {
+    this.updateItem(item);
+  },
+
+  markAsPaid : function(item) {
+    this.updateItem(item);
+  },
+
+  markAsSold: function(item) {
+    this.updateItem(item);
+  },
+
+  markAsPublic: function(item) {
+    this.updateItem(item);
+  },
+
+  markAsPrivate: function(item) {
+    this.updateItem(item);
   },
 
   exports: {

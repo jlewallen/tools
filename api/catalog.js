@@ -72,6 +72,7 @@ db.serialize(function() {
     return _.extend({}, interest, {
       item: item,
       urls: {
+        acknowledge: "/api/item/" + item.number + "/interests/" + interest.id + "/acknowledge",
         paid: "/api/item/" + item.number + "/interests/" + interest.id + "/paid",
         sold: "/api/item/" + item.number + "/interests/" + interest.id + "/sold",
         close: "/api/item/" + item.number + "/interests/" + interest.id + "/close",
@@ -164,7 +165,8 @@ db.serialize(function() {
 
   self.acknowledge = function(user, number, interestId) {
     var interest = getInterestById(interestId);
-    return createInterestForUser(user, item);
+    interest.acknowledged = true;
+    return createInterestForUser(user, interest);
   };
 
   self.markAsSold = function(user, number, interestId) {

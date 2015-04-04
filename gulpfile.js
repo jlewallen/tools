@@ -14,6 +14,7 @@ var shell = require('gulp-shell');
 var glob = require('glob');
 var livereload = require('gulp-livereload');
 var jasminePhantomJs = require('gulp-jasmine2-phantomjs');
+var server = require('gulp-express');
 
 // External dependencies you do not want to rebundle while developing,
 // but include in your application deployment
@@ -119,26 +120,25 @@ var browserifyTask = function (options) {
 }
 
 var cssTask = function (options) {
-    if (options.development) {
-      var run = function () {
-        console.log(arguments);
-        var start = new Date();
-        console.log('Building CSS bundle');
-        gulp.src(options.src)
-          .pipe(concat('main.css'))
-          .pipe(gulp.dest(options.dest))
-          .pipe(notify(function () {
-            console.log('CSS bundle built in ' + (Date.now() - start) + 'ms');
-          }));
-      };
-      run();
-      gulp.watch(options.src, run);
-    } else {
+  if (options.development) {
+    var run = function () {
+      var start = new Date();
+      console.log('Building CSS bundle');
       gulp.src(options.src)
         .pipe(concat('main.css'))
-        .pipe(cssmin())
-        .pipe(gulp.dest(options.dest));   
-    }
+        .pipe(gulp.dest(options.dest))
+        .pipe(notify(function () {
+          console.log('CSS bundle built in ' + (Date.now() - start) + 'ms');
+        }));
+    };
+    run();
+    gulp.watch(options.src, run);
+  } else {
+    gulp.src(options.src)
+      .pipe(concat('main.css'))
+      .pipe(cssmin())
+      .pipe(gulp.dest(options.dest));   
+  }
 }
 
 // Starts our development workflow
@@ -155,6 +155,9 @@ gulp.task('default', function () {
     dest: './build'
   });
 
+  server.run(['server.js']);
+
+  gulp.watch(['server.js', 'api/**/*.js'], [server.run]);
 });
 
 gulp.task('deploy', function () {
@@ -172,5 +175,5 @@ gulp.task('deploy', function () {
 });
 
 gulp.task('test', function () {
-    return gulp.src('./build/testrunner-phantomjs.html').pipe(jasminePhantomJs());
+  return gulp.src('./build/testrunner-phantomjs.html').pipe(jasminePhantomJs());
 });

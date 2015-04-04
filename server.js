@@ -71,6 +71,16 @@ app.post('/api/item/:number/bids/:bidId/paid', function(req, res) {
   return res.send(api.markAsPaid(user, req.params.number, req.params.bidId, req.body));
 });
 
+app.post('/api/item/:number/bids/:bidId/shipped', function(req, res) {
+  var user = getUser(req);
+  return res.send(api.markAsShipped(user, req.params.number, req.params.bidId, req.body));
+});
+
+app.post('/api/item/:number/bids/:bidId/returned', function(req, res) {
+  var user = getUser(req);
+  return res.send(api.markAsReturned(user, req.params.number, req.params.bidId, req.body));
+});
+
 app.post('/api/item/:number/bids/:bidId/sold', function(req, res) {
   var user = getUser(req);
   return res.send(api.markAsSold(user, req.params.number, req.params.bidId, req.body));
@@ -78,7 +88,7 @@ app.post('/api/item/:number/bids/:bidId/sold', function(req, res) {
 
 app.post('/api/item/:number/bids/:bidId/close', function(req, res) {
   var user = getUser(req);
-  return res.send(api.unbided(user, req.params.number, req.params.bidId, req.body));
+  return res.send(api.closeBid(user, req.params.number, req.params.bidId, req.body));
 });
 
 app.post('/api/item/:number/share', function(req, res) {

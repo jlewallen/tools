@@ -7,7 +7,13 @@ module.exports = flux.createStore({
 
   actions: [
     actions.refreshBids,
-    actions.acknowledge
+    actions.acknowledge,
+    actions.cancelBid,
+    actions.closeBid,
+    actions.markAsPaid,
+    actions.markAsShipped,
+    actions.markAsReturned,
+    actions.markAsSold
   ],
 
   updateBid: function(bid) {
@@ -24,6 +30,30 @@ module.exports = flux.createStore({
   },
 
   acknowledge: function(bid) {
+    this.updateBid(bid);
+  },
+
+  cancelBid: function(bid) {
+    this.updateBid(bid);
+  },
+
+  closeBid: function(bid) {
+    this.updateBid(bid);
+  },
+
+  markAsPaid: function(bid) {
+    this.updateBid(bid);
+  },
+
+  markAsShipped: function(bid) {
+    this.updateBid(bid);
+  },
+
+  markAsReturned: function(bid) {
+    this.updateBid(bid);
+  },
+  
+  markAsSold: function(bid) {
     this.updateBid(bid);
   },
 

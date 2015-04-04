@@ -9,20 +9,9 @@ var BidsDashboard = React.createClass({
     };
   },
 
-  componentWillMount: function () {
-  },
-
-  componentWillUnmount: function () {
-  },
-
-  changeState: function () {
-    this.setState({
-    });
-  },
-
   // Somethings tells me this may be a bad practice?
   unacknowledged: function(bid) {
-    return !bid.acknowledged;
+    return !bid.closed && !bid.acknowledged;
   },
 
   pending: function(bid) {
@@ -36,7 +25,7 @@ var BidsDashboard = React.createClass({
         <ListOfBids filter={this.unacknowledged} openReply={true} />
 
         <h3>Pending</h3>
-        <ListOfBids filter={this.pending}  openReply={false} />
+        <ListOfBids filter={this.pending} openReply={false} />
       </div>
 		);
 	}

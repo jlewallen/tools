@@ -35,8 +35,8 @@ var Negotiation = React.createClass({
     actions.markAsPrivate(this.state.item);
   },
 
-  markAsAvailable: function() {
-    actions.markAsAvailable(this.state.item);
+  cancelBid: function() {
+    actions.cancelBid(this.props.bid);
   },
 
   markAsPaid: function() {
@@ -47,22 +47,55 @@ var Negotiation = React.createClass({
     actions.markAsSold(this.props.bid);
   },
 
+  markAsReturned: function() {
+    actions.markAsReturned(this.props.bid);
+  },
+
+  markAsShipped: function() {
+    actions.markAsShipped(this.props.bid);
+  },
+
   acknowledge: function() {
     actions.acknowledge(this.props.bid);
   },
 
+  closeBid: function() {
+    actions.closeBid(this.props.bid);
+  },
+
   render: function() {
+    var buttons = [];
+    if (!this.props.bid.acknowledged) {
+      buttons.push((<button className="btn" onClick={this.acknowledge}>Acknowledge</button>));
+    }
+    if (this.props.bid.winning) {
+      if (this.props.bid.shipped) {
+      }
+      else {
+        buttons.push((<button className="btn" onClick={this.markAsShipped}>Shipped</button>));
+      }
+      buttons.push((<button className="btn" onClick={this.cancelBid}>Cancel</button>));
+    }
+    else {
+      buttons.push((<button className="btn" onClick={this.markAsSold}>Sold</button>));
+    }
+    if (this.props.bid.shipped) {
+      buttons.push((<button className="btn" onClick={this.markAsPaid}>Paid</button>));
+      buttons.push((<button className="btn" onClick={this.markAsReturned}>Returned</button>));
+    }
+    if (this.state.item.public) {
+      buttons.push((<button className="btn btn-sm" onClick={this.markAsPrivate}>Private</button>));
+    }
+    else {
+      buttons.push((<button className="btn btn-sm" onClick={this.markAsPublic}>Public</button>));
+    }
+    buttons.push((<button className="btn btn-sm" onClick={this.closeBid}>Close</button>));
     return (
   <div>
     <Thread id={this.props.bid.thread.id} openReply={this.props.openReply} />
     <div className="row">
       <div className="col xs-12">
-        <button className="btn" onClick={this.acknowledge}>Acknowledge</button>
-        <button className="btn" onClick={this.markAsAvailable}>Available</button>
-        <button className="btn" onClick={this.markAsSold}>Sold</button>
-        <button className="btn" onClick={this.markAsPaid}>Paid</button>
-        <button className="btn btn-sm" onClick={this.markAsPublic}>Public</button>
-        <button className="btn btn-sm" onClick={this.markAsPrivate}>Private</button>
+        {buttons}
       </div>
     </div>
   </div>

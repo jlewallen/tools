@@ -14,8 +14,6 @@ db.serialize(function() {
       description: 'This looks like a standard small bench smoother but the sole has been relieved to allow it to be used as a rabbet plane in either the right or left hand direction. Further more, the sole has been radiused to enable it to work these rabbets around corners. I assume it\'s a coach maker\'s plane. The plane has an even, honest patina, including the relieved area long the sole which I believe is factory-original. The blade is long and clean and has no damage. It\'s a small plane measuring 8.5in long with a 1 3/8in wide double iron. It\'s a nice plane by this New Haven, CT maker.',
       price: '3000',
       sold: false,
-      available: true,
-      paid: false,
       public: true,
       pictures: [
         { url: 'http://www.hyperkitten.com/pics/tools/fs/wbp389_1_thumb.jpg' }
@@ -26,8 +24,6 @@ db.serialize(function() {
       description: 'This is the highest angle bench plane I\'ve come across. It\'s marked H.C. Draper at the toe, a name I can\'t find in either the British or American planemakers books. It holds a nice A. Howland 2 1/4in wide single iron. The iron has no pitting and is quite sharp. I\'ve never used a plane with this high of an attack angle so I quickly honed it and gave it a whirl. It worked well, but there\'s a downside to that ultra-high angle.. It makes it really hard to push. The plane is clean and crisp with a freshly flattened sole. The plane once held a double iron- there was a groove in the bed to accept the cap iron\'s nut. It\'s been filled and the bed lined with a thin piece of leather. The plane measures 6.5in overall. It\'s an biding plane for sure.',
       price: '5500',
       sold: false,
-      available: true,
-      paid: false,
       public: true,
       pictures: [
         { url: 'http://www.hyperkitten.com/pics/tools/fs/wbp388_1_thumb.jpg' }
@@ -38,8 +34,6 @@ db.serialize(function() {
       description: 'This is a well-made little router plane with a 1/4in wide blade. It\'s held in place with a screw set in a brass escutcheon. It measures only 4in wide and works quite well for such a simple little router.',
       price: '2500',
       sold: true,
-      available: true,
-      paid: false,
       public: true,
       pictures: [
         { url: 'http://www.hyperkitten.com/pics/tools/fs/wbp373_1_thumb.jpg' }
@@ -71,10 +65,12 @@ db.serialize(function() {
       item: item,
       urls: {
         acknowledge: "/api/item/" + item.number + "/bids/" + bid.id + "/acknowledge",
+        shipped: "/api/item/" + item.number + "/bids/" + bid.id + "/shipped",
+        returned: "/api/item/" + item.number + "/bids/" + bid.id + "/returned",
         paid: "/api/item/" + item.number + "/bids/" + bid.id + "/paid",
         sold: "/api/item/" + item.number + "/bids/" + bid.id + "/sold",
         close: "/api/item/" + item.number + "/bids/" + bid.id + "/close",
-        cancelBid: "/api/item/" + item.number + "/bids/" + bid.id + "/cancelBid",
+        cancel: "/api/item/" + item.number + "/bids/" + bid.id + "/cancel",
         thread: "/api/threads/" + bid.thread.id
       }
     });
@@ -88,7 +84,7 @@ db.serialize(function() {
     });
   }
 
-  function newThread(user, id, message, tags) {
+  function newThread(user, id, tags, message) {
     return {
       id: id,
       userIds: [ user.userId ],
@@ -111,11 +107,16 @@ db.serialize(function() {
 
   function newBid(user, item) {
     return {
-      id: _.uniqueId("in"),
+      id: _.uniqueId("bid"),
       created: new Date(),
+      modified: new Date(),
       number: item.number,
       email: user.email,
+      won: false,
+      shipped: false,
+      paid: false,
       closed: false,
+      cancelled: false,
       acknowledged: false,
       closed_by: null,
       thread: {
@@ -137,14 +138,10 @@ db.serialize(function() {
     // TODO Prevent duplicates per user.
     var item = getItemByNumber(number);
     var bid = newBid(user, item);
-    var thread = newThread(user, bid.thread.id, newThreadMessage(user, data.message));
+    var tags = [ bid.id, item.number ];
+    var thread = newThread(user, bid.thread.id, tags, newThreadMessage(user, data.message));
     bids.push(bid);
     threads.push(thread);
-    return createItemForUser(user, item);
-  };
-
-  self.cancelBid = function(user, number) {
-    var item = getItemByNumber(number);
     return createItemForUser(user, item);
   };
 
@@ -168,13 +165,6 @@ db.serialize(function() {
     return createBidForUser(user, bid);
   };
 
-  self.markAsSold = function(user, number, bidId) {
-    var item = getItemByNumber(number);
-    item.sold = true;
-    item.available = false;
-    return createItemForUser(user, item);
-  };
-
   self.markAsPrivate = function(user, number) {
     var item = getItemByNumber(number);
     item.public = false;
@@ -188,24 +178,59 @@ db.serialize(function() {
   };
 
   self.markAsUnavailable = function(user, number) {
-    var item = getItemByNumber(number);
-    item.sold = false;
-    item.available = false;
-    return createItemForUser(user, item);
+    throw number;
   };
 
   self.markAsAvailable = function(user, number) {
+    throw number;
+  };
+
+  self.cancelBid = function(user, number, bidId) {
     var item = getItemByNumber(number);
+    var bid = getBidById(bidId);
+    bid.acknowledged = true;
+    bid.winning = false;
     item.sold = false;
-    item.available = true;
     return createItemForUser(user, item);
   };
 
-  self.markAsPaid = function(user, number, bidId) {
+  self.closeBid = function(user, number, bidId) {
+    var bid = getBidById(bidId);
+    var item = getItemByNumber(number);
+    bid.closed = true;
+    bid.closed_by = user;
+    return createBidForUser(user, bid);
+  };
+
+  self.markAsSold = function(user, number, bidId) {
+    var bid = getBidById(bidId);
     var item = getItemByNumber(number);
     item.sold = true;
-    item.paid = true;
-    return createItemForUser(user, item);
+    bid.winning = true;
+    return createBidForUser(user, bid);
+  };
+
+  self.markAsShipped = function(user, number, bidId) {
+    var bid = getBidById(bidId);
+    var item = getItemByNumber(number);
+    bid.shipped = true;
+    return createBidForUser(user, bid);
+  };
+
+  self.markAsReturned = function(user, number, bidId) {
+    var bid = getBidById(bidId);
+    var item = getItemByNumber(number);
+    item.sold = false;
+    bid.shipped = false;
+    bid.winning = false;
+    return createBidForUser(user, bid);
+  };
+
+  self.markAsPaid = function(user, number, bidId) {
+    var bid = getBidById(bidId);
+    var item = getItemByNumber(number);
+    bid.paid = true;
+    return createBidForUser(user, bid);
   };
 
   self.getThreads = function(user, id) {
@@ -220,6 +245,15 @@ db.serialize(function() {
     var thread = _(threads).where({ id: id }).first();
     var message = newThreadMessage(user, data.message);
     thread.messages.push(message);
+    _(thread.tags).each(function(tag) {
+      var bid = getBidById(tag);
+      if (_.isObject(bid)) {
+        bid.modified = new Date();
+        bid.acknowledged = false;
+        bid.closed = false;
+        bid.closed_by = null;
+      }
+    }).value();
     return createThreadForUser(user, thread);
   };
 

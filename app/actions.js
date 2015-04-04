@@ -68,6 +68,18 @@ module.exports = _.extend({
       url: item.urls.available
     });
   }),
+  cancelBid: createActionFunction('cancelBid', function(bid) {
+    return api({
+      method: 'POST',
+      url: bid.urls.cancel
+    });
+  }),
+  closeBid: createActionFunction('closeBid', function(bid) {
+    return api({
+      method: 'POST',
+      url: bid.urls.close
+    });
+  }),
   markAsPaid: createActionFunction('markAsPaid', function(bid) {
     return api({
       method: 'POST',
@@ -78,6 +90,18 @@ module.exports = _.extend({
     return api({
       method: 'POST',
       url: bid.urls.sold
+    });
+  }),
+  markAsReturned: createActionFunction('markAsReturned', function(bid) {
+    return api({
+      method: 'POST',
+      url: bid.urls.returned
+    });
+  }),
+  markAsShipped: createActionFunction('markAsShipped', function(bid) {
+    return api({
+      method: 'POST',
+      url: bid.urls.shipped
     });
   }),
   markAsPublic: createActionFunction('markAsPublic', function(item) {

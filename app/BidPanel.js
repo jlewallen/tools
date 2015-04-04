@@ -3,6 +3,7 @@ var React = require('react');
 var addons = require('react-addons');
 var Thread = require("./Thread.js");
 var Store = require('./Store.js');
+var BidStore = require('./BidStore.js');
 var actions = require('./actions.js');
 var _ = require('lodash');
 
@@ -39,7 +40,7 @@ var BidPanel = React.createClass({
   },
 
   renderMyBid: function(bid) {
-    return (<Thread id={bid.thread.id}/>);
+    return (<Thread id={bid.thread.id} openReply={true} />);
   },
 
 	render: function() {

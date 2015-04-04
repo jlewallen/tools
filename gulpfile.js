@@ -143,6 +143,9 @@ var cssTask = function (options) {
 
 // Starts our development workflow
 gulp.task('default', function () {
+  console.log("Default");
+  server.run(['server.js'], { }, false);
+
   browserifyTask({
     development: true,
     src: './app/main.js',
@@ -155,9 +158,9 @@ gulp.task('default', function () {
     dest: './build'
   });
 
-  server.run(['server.js']);
-
-  gulp.watch(['server.js', 'api/**/*.js'], [server.run]);
+  gulp.watch(['server.js', 'api/**/*.js'], function() {
+    server.run(['server.js'], { }, false);
+  });
 });
 
 gulp.task('deploy', function () {

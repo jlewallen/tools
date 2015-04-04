@@ -9,9 +9,6 @@ module.exports = flux.createStore({
     actions.refreshCatalog,
     actions.addBid,
     actions.bidOnItem,
-    actions.markAsAvailable,
-    actions.markAsPaid,
-    actions.markAsSold,
     actions.markAsPublic,
     actions.markAsPrivate
   ],
@@ -36,31 +33,19 @@ module.exports = flux.createStore({
     this.emitChange();
   },
 
-  updateItem: function(item) {
-    var item = _(this.catalog).where({ number: item.number }).map(function(i) {
-      return _.extend(i, item); 
-    });
-    this.emitChange();
-  },
-
-  markAsAvailable: function(item) {
-    this.updateItem(item);
-  },
-
-  markAsPaid : function(item) {
-    this.updateItem(item);
-  },
-
-  markAsSold: function(item) {
-    this.updateItem(item);
-  },
-
   markAsPublic: function(item) {
     this.updateItem(item);
   },
 
   markAsPrivate: function(item) {
     this.updateItem(item);
+  },
+
+  updateItem: function(item) {
+    var item = _(this.catalog).where({ number: item.number }).map(function(i) {
+      return _.extend(i, item); 
+    });
+    this.emitChange();
   },
 
   exports: {

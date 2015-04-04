@@ -6,12 +6,16 @@ module.exports = flux.createStore({
   interests: [],
 
   actions: [
-    actions.refreshInterests
+    actions.refreshInterests,
+    actions.acknowledge
   ],
 
   refreshInterests: function(data) {
     this.interests = data.interests;
     this.emitChange();
+  },
+
+  acknowledge: function() {
   },
 
   exports: {

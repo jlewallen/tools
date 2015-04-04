@@ -48,22 +48,27 @@ var Negotiation = React.createClass({
     actions.markAsSold(this.props.interest);
   },
 
-	render: function() {
-		return (
-      <div>
-        <Thread id={this.props.interest.thread.id} />
-        <div className="row">
-          <div className="col xs-12">
-            <button className="btn" onClick={this.markAsAvailable}>Available</button>
-            <button className="btn" onClick={this.markAsSold}>Sold</button>
-            <button className="btn" onClick={this.markAsPaid}>Paid</button>
-            <button className="btn btn-sm" onClick={this.markAsPublic}>Public</button>
-            <button className="btn btn-sm" onClick={this.markAsPrivate}>Private</button>
-          </div>
-        </div>
+  acknowledge: function() {
+    actions.acknowledge(this.props.interest);
+  },
+
+  render: function() {
+    return (
+  <div>
+    <Thread id={this.props.interest.thread.id} />
+    <div className="row">
+      <div className="col xs-12">
+        <button className="btn" onClick={this.acknowledge}>Acknowledge</button>
+        <button className="btn" onClick={this.markAsAvailable}>Available</button>
+        <button className="btn" onClick={this.markAsSold}>Sold</button>
+        <button className="btn" onClick={this.markAsPaid}>Paid</button>
+        <button className="btn btn-sm" onClick={this.markAsPublic}>Public</button>
+        <button className="btn btn-sm" onClick={this.markAsPrivate}>Private</button>
       </div>
-		);
-	}
+    </div>
+  </div>
+    );
+}
 });
 	
 module.exports = Negotiation;

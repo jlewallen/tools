@@ -56,6 +56,12 @@ module.exports = _.extend({
       data: JSON.stringify(reply)
     });
   }),
+  acknowledge: createActionFunction('acknowledge', function(item) {
+    return api({
+       method: 'POST',
+       url: item.urls.acknowledge
+     });
+  }),
   markAsAvailable: createActionFunction('markAsAvailable', function(item) {
     return api({
       method: 'POST',

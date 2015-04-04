@@ -1,10 +1,9 @@
 /** @jsx React.DOM */
 var React = require('react');
-var UnacknowledgedInterests = require('./UnacknowledgedInterests.js');
-var ListOfInterests = require('./ListOfInterests.js');
+var ListOfBids = require('./ListOfBids.js');
 var actions = require('./actions.js');
 
-var InterestsDashboard = React.createClass({
+var BidsDashboard = React.createClass({
   getInitialState: function () {
     return {
     };
@@ -22,25 +21,25 @@ var InterestsDashboard = React.createClass({
   },
 
   // Somethings tells me this may be a bad practice?
-  unacknowledged: function(interest) {
-    return !interest.acknowledged;
+  unacknowledged: function(bid) {
+    return !bid.acknowledged;
   },
 
-  pending: function(interest) {
-    return !interest.closed && interest.acknowledged;
+  pending: function(bid) {
+    return !bid.closed && bid.acknowledged;
   },
 
 	render: function() {
 		return (
 			<div>
         <h3>Unseed or Unacknowledged</h3>
-        <ListOfInterests filter={this.unacknowledged} openReply={true} />
+        <ListOfBids filter={this.unacknowledged} openReply={true} />
 
         <h3>Pending</h3>
-        <ListOfInterests filter={this.pending}  openReply={false} />
+        <ListOfBids filter={this.pending}  openReply={false} />
       </div>
 		);
 	}
 });
 	
-module.exports = InterestsDashboard;
+module.exports = BidsDashboard;

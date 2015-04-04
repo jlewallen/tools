@@ -36,16 +36,16 @@ module.exports = _.extend({
       url: '/api/threads/' + id
     });
   }),
-  refreshInterests: createActionFunction('refreshInterests', function() {
+  refreshBids: createActionFunction('refreshBids', function() {
     return api({
-      url: '/api/interests/pending'
+      url: '/api/bids/pending'
     });
   }),
-  addInterest: createActionFunction('addInterest'),
-  interested: createActionFunction('interested', function(item, message) {
+  addBid: createActionFunction('addBid'),
+  bidOnItem: createActionFunction('bidOnItem', function(item, message) {
     return api({
       method: 'POST',
-      url: item.urls.interested,
+      url: item.urls.bid,
       data: JSON.stringify({ message: message })
     });
   }),
@@ -68,16 +68,16 @@ module.exports = _.extend({
       url: item.urls.available
     });
   }),
-  markAsPaid: createActionFunction('markAsPaid', function(interest) {
+  markAsPaid: createActionFunction('markAsPaid', function(bid) {
     return api({
       method: 'POST',
-      url: interest.urls.paid
+      url: bid.urls.paid
     });
   }),
-  markAsSold: createActionFunction('markAsSold', function(interest) {
+  markAsSold: createActionFunction('markAsSold', function(bid) {
     return api({
       method: 'POST',
-      url: interest.urls.sold
+      url: bid.urls.sold
     });
   }),
   markAsPublic: createActionFunction('markAsPublic', function(item) {

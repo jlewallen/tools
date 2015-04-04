@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 var React = require('react');
-var InterestsDashboard = require("./InterestsDashboard");
+var BidsDashboard = require("./BidsDashboard");
 
 var AdminApp = React.createClass({
   getInitialState: function () {
@@ -12,7 +12,7 @@ var AdminApp = React.createClass({
 		return (
       <div>
         <h3>Administration</h3>
-        <InterestsDashboard/>
+        <BidsDashboard/>
       </div>
 		);
 	}

@@ -3,8 +3,6 @@ var _ = require("lodash");
 
 var db = new sqlite3.Database(':memory:');
 db.serialize(function() {
-  // db.run("CREATE TABLE items ()");
-  // db.run("CREATE TABLE interests ()");
 });
 
 (function() {
@@ -25,7 +23,7 @@ db.serialize(function() {
     }, {
       number: 'wbp388',
       name: 'Most Unusual 60 Degree Single-Iron Coffin Smoother',
-      description: 'This is the highest angle bench plane I\'ve come across. It\'s marked H.C. Draper at the toe, a name I can\'t find in either the British or American planemakers books. It holds a nice A. Howland 2 1/4in wide single iron. The iron has no pitting and is quite sharp. I\'ve never used a plane with this high of an attack angle so I quickly honed it and gave it a whirl. It worked well, but there\'s a downside to that ultra-high angle.. It makes it really hard to push. The plane is clean and crisp with a freshly flattened sole. The plane once held a double iron- there was a groove in the bed to accept the cap iron\'s nut. It\'s been filled and the bed lined with a thin piece of leather. The plane measures 6.5in overall. It\'s an interesting plane for sure.',
+      description: 'This is the highest angle bench plane I\'ve come across. It\'s marked H.C. Draper at the toe, a name I can\'t find in either the British or American planemakers books. It holds a nice A. Howland 2 1/4in wide single iron. The iron has no pitting and is quite sharp. I\'ve never used a plane with this high of an attack angle so I quickly honed it and gave it a whirl. It worked well, but there\'s a downside to that ultra-high angle.. It makes it really hard to push. The plane is clean and crisp with a freshly flattened sole. The plane once held a double iron- there was a groove in the bed to accept the cap iron\'s nut. It\'s been filled and the bed lined with a thin piece of leather. The plane measures 6.5in overall. It\'s an biding plane for sure.',
       price: '5500',
       sold: false,
       available: true,
@@ -48,17 +46,17 @@ db.serialize(function() {
       ]
   }];
 
-  var interests = [];
+  var bids = [];
 
   var threads = [];
 
   function createItemForUser(user, item) {
-    var yourInterests = _(interests).where({ number: item.number, email: user.email });
+    var yourBids = _(bids).where({ number: item.number, email: user.email });
     return _.extend({}, item, {
-      youAreInterested: yourInterests.any(),
-      yourInterests: yourInterests.map(_.curry(createInterestForUser)(user)).value(),
+      youAreInterested: yourBids.any(),
+      yourBids: yourBids.map(_.curry(createBidForUser)(user)).value(),
       urls: {
-        interested: "/api/item/" + item.number + "/interested",
+        bid: "/api/item/" + item.number + "/bid",
         unavailable: "/api/item/" + item.number + "/unavailable",
         available: "/api/item/" + item.number + "/available",
         public: "/api/item/" + item.number + "/public",
@@ -67,17 +65,17 @@ db.serialize(function() {
     });
   }
 
-  function createInterestForUser(user, interest) {
-    var item = getItemByNumber(interest.number);
-    return _.extend({}, interest, {
+  function createBidForUser(user, bid) {
+    var item = getItemByNumber(bid.number);
+    return _.extend({}, bid, {
       item: item,
       urls: {
-        acknowledge: "/api/item/" + item.number + "/interests/" + interest.id + "/acknowledge",
-        paid: "/api/item/" + item.number + "/interests/" + interest.id + "/paid",
-        sold: "/api/item/" + item.number + "/interests/" + interest.id + "/sold",
-        close: "/api/item/" + item.number + "/interests/" + interest.id + "/close",
-        uninterested: "/api/item/" + item.number + "/interests/" + interest.id + "/uninterested",
-        thread: "/api/threads/" + interest.thread.id
+        acknowledge: "/api/item/" + item.number + "/bids/" + bid.id + "/acknowledge",
+        paid: "/api/item/" + item.number + "/bids/" + bid.id + "/paid",
+        sold: "/api/item/" + item.number + "/bids/" + bid.id + "/sold",
+        close: "/api/item/" + item.number + "/bids/" + bid.id + "/close",
+        cancelBid: "/api/item/" + item.number + "/bids/" + bid.id + "/cancelBid",
+        thread: "/api/threads/" + bid.thread.id
       }
     });
   }
@@ -111,7 +109,7 @@ db.serialize(function() {
     };
   }
 
-  function newInterest(user, item) {
+  function newBid(user, item) {
     return {
       id: _.uniqueId("in"),
       created: new Date(),
@@ -135,24 +133,24 @@ db.serialize(function() {
     };
   };
 
-  self.interested = function(user, number, data) {
+  self.bid = function(user, number, data) {
     // TODO Prevent duplicates per user.
     var item = getItemByNumber(number);
-    var interest = newInterest(user, item);
-    var thread = newThread(user, interest.thread.id, newThreadMessage(user, data.message));
-    interests.push(interest);
+    var bid = newBid(user, item);
+    var thread = newThread(user, bid.thread.id, newThreadMessage(user, data.message));
+    bids.push(bid);
     threads.push(thread);
     return createItemForUser(user, item);
   };
 
-  self.uninterested = function(user, number) {
+  self.cancelBid = function(user, number) {
     var item = getItemByNumber(number);
     return createItemForUser(user, item);
   };
 
-  self.getInterests = function(user) {
+  self.getBids = function(user) {
     return {
-      interests: _(interests).map(_.curry(createInterestForUser)(user)).value()
+      bids: _(bids).map(_.curry(createBidForUser)(user)).value()
     };
   };
 
@@ -160,17 +158,17 @@ db.serialize(function() {
     return _(catalog).where({number: number}).first();
   }
 
-  function getInterestById(id) {
-    return _(interests).where({id: id}).first();
+  function getBidById(id) {
+    return _(bids).where({id: id}).first();
   }
 
-  self.acknowledge = function(user, number, interestId) {
-    var interest = getInterestById(interestId);
-    interest.acknowledged = true;
-    return createInterestForUser(user, interest);
+  self.acknowledge = function(user, number, bidId) {
+    var bid = getBidById(bidId);
+    bid.acknowledged = true;
+    return createBidForUser(user, bid);
   };
 
-  self.markAsSold = function(user, number, interestId) {
+  self.markAsSold = function(user, number, bidId) {
     var item = getItemByNumber(number);
     item.sold = true;
     item.available = false;
@@ -203,7 +201,7 @@ db.serialize(function() {
     return createItemForUser(user, item);
   };
 
-  self.markAsPaid = function(user, number, interestId) {
+  self.markAsPaid = function(user, number, bidId) {
     var item = getItemByNumber(number);
     item.sold = true;
     item.paid = true;

@@ -3,7 +3,7 @@ var React = require('react');
 var addons = require('react-addons');
 var Store = require('./Store.js');
 var actions = require('./actions.js');
-var InterestPanel = require('./InterestPanel.js');
+var BidPanel = require('./BidPanel.js');
 var _ = require('lodash');
 
 var ItemListing = React.createClass({
@@ -27,7 +27,7 @@ var ItemListing = React.createClass({
   },
   renderLowerPanel: function() {
     if (!this.state.item.sold) {
-        return (<InterestPanel number={this.props.number} />);
+        return (<BidPanel number={this.props.number} />);
     }
     else {
       return (<b>This item has been sold.</b>);

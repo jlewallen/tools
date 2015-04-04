@@ -7,8 +7,8 @@ module.exports = flux.createStore({
 
   actions: [
     actions.refreshCatalog,
-    actions.addInterest,
-    actions.interested,
+    actions.addBid,
+    actions.bidOnItem,
     actions.markAsAvailable,
     actions.markAsPaid,
     actions.markAsSold,
@@ -21,17 +21,17 @@ module.exports = flux.createStore({
     this.emitChange();
   },
 
-  addInterest: function(number) {
+  addBid: function(number) {
     var item = _(this.catalog).where({ number: number }).first();
-    item.pendingInterest = { message: '' };
+    item.pendingBid = { message: '' };
     this.emitChange();
   },
 
-  interested: function(item) {
+  bidOnItem: function(item) {
     var item = _(this.catalog).where({ number: item.number }).map(function(i) {
       return _.extend(i, item); 
     }).first();
-    item.pendingInterest = null;
+    item.pendingBid = null;
     item.youAreInterested = true;
     this.emitChange();
   },

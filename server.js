@@ -21,9 +21,9 @@ function getUser(req) {
   return { userId: null, email: null, admin: false };
 }
 
-app.get('/api/interests/pending', function(req, res) {
+app.get('/api/bids/pending', function(req, res) {
   var user = getUser(req);
-  return res.send(api.getInterests(user));
+  return res.send(api.getBids(user));
 });
 
 app.get('/api/catalog', function(req, res) {
@@ -31,9 +31,9 @@ app.get('/api/catalog', function(req, res) {
   return res.send(api.getCatalog(user));
 });
 
-app.post('/api/item/:number/interested', function(req, res) {
+app.post('/api/item/:number/bid', function(req, res) {
   var user = getUser(req);
-  return res.send(api.interested(user, req.params.number, req.body));
+  return res.send(api.bid(user, req.params.number, req.body));
 });
 
 app.post('/api/item/:number/available', function(req, res) {
@@ -56,29 +56,29 @@ app.post('/api/item/:number/unavailable', function(req, res) {
   return res.send(api.markAsUnavailable(user, req.params.number, req.body));
 });
 
-app.post('/api/item/:number/interests/:interestId/acknowledge', function(req, res) {
+app.post('/api/item/:number/bids/:bidId/acknowledge', function(req, res) {
   var user = getUser(req);
-  return res.send(api.acknowledge(user, req.params.number, req.params.interestId, req.body));
+  return res.send(api.acknowledge(user, req.params.number, req.params.bidId, req.body));
 });
 
-app.post('/api/item/:number/interests/:interestId/uninterested', function(req, res) {
+app.post('/api/item/:number/bids/:bidId/cancel', function(req, res) {
   var user = getUser(req);
-  return res.send(api.uninterested(user, req.params.number, req.params.interestId, req.body));
+  return res.send(api.cancelBid(user, req.params.number, req.params.bidId, req.body));
 });
 
-app.post('/api/item/:number/interests/:interestId/paid', function(req, res) {
+app.post('/api/item/:number/bids/:bidId/paid', function(req, res) {
   var user = getUser(req);
-  return res.send(api.markAsPaid(user, req.params.number, req.params.interestId, req.body));
+  return res.send(api.markAsPaid(user, req.params.number, req.params.bidId, req.body));
 });
 
-app.post('/api/item/:number/interests/:interestId/sold', function(req, res) {
+app.post('/api/item/:number/bids/:bidId/sold', function(req, res) {
   var user = getUser(req);
-  return res.send(api.markAsSold(user, req.params.number, req.params.interestId, req.body));
+  return res.send(api.markAsSold(user, req.params.number, req.params.bidId, req.body));
 });
 
-app.post('/api/item/:number/interests/:interestId/close', function(req, res) {
+app.post('/api/item/:number/bids/:bidId/close', function(req, res) {
   var user = getUser(req);
-  return res.send(api.uninterested(user, req.params.number, req.params.interestId, req.body));
+  return res.send(api.unbided(user, req.params.number, req.params.bidId, req.body));
 });
 
 app.post('/api/item/:number/share', function(req, res) {

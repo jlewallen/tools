@@ -6,7 +6,7 @@ var Store = require('./Store.js');
 var actions = require('./actions.js');
 var _ = require('lodash');
 
-var InterestPanel = React.createClass({
+var BidPanel = React.createClass({
   mixins: [addons.LinkedStateMixin],
 
   getInitialState: function() {
@@ -29,24 +29,24 @@ var InterestPanel = React.createClass({
     });
   },
 
-  addInterest: function() {
-    actions.addInterest(this.props.number);
+  addBid: function() {
+    actions.addBid(this.props.number);
   },
 
-  interested: function(ev) {
+  bidOnItem: function(ev) {
     ev.preventDefault();
-    actions.interested(this.state.item, this.state.message);
+    actions.bidOnItem(this.state.item, this.state.message);
   },
 
-  renderMyInterest: function(interest) {
-    return (<Thread id={interest.thread.id}/>);
+  renderMyBid: function(bid) {
+    return (<Thread id={bid.thread.id}/>);
   },
 
 	render: function() {
     if (this.state.item.youAreInterested) {
       return (<div>
                 <p>You are interested.</p>
-                {this.state.item.yourInterests.map(this.renderMyInterest)}
+                {this.state.item.yourBids.map(this.renderMyBid)}
               </div>);
     }
     if (this.state.item.sold) {
@@ -54,19 +54,19 @@ var InterestPanel = React.createClass({
                 <p>This item has been sold.</p>
               </div>);
     }
-    if (_.isObject(this.state.item.pendingInterest)) {
+    if (_.isObject(this.state.item.pendingBid)) {
       return (
-        <form onSubmit={this.interested}>
+        <form onSubmit={this.bidOnItem}>
           <textarea valueLink={this.linkState('message')} className="form-control"></textarea>
           <button type="SUBMIT" className="btn">Send</button>
         </form>
       );
     }
     return (
-      <button onClick={this.addInterest} className="btn">Want</button>
+      <button onClick={this.addBid} className="btn">Want</button>
     );
 	}
 	
 });
 	
-module.exports = InterestPanel;
+module.exports = BidPanel;

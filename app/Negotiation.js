@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 var React = require('react');
-var InterestStore = require('./InterestStore.js');
+var BidStore = require('./BidStore.js');
 var ThreadStore = require('./ThreadStore.js');
 var Store = require('./Store.js');
 var Thread = require('./Thread.js');
@@ -9,7 +9,7 @@ var actions = require('./actions.js');
 var Negotiation = React.createClass({
   getInitialState: function () {
     return {
-      item: Store.getItem(this.props.interest.item.number)
+      item: Store.getItem(this.props.bid.item.number)
     };
   },
 
@@ -23,7 +23,7 @@ var Negotiation = React.createClass({
 
   changeState: function () {
     this.setState({
-      item: Store.getItem(this.props.interest.item.number)
+      item: Store.getItem(this.props.bid.item.number)
     });
   },
 
@@ -40,21 +40,21 @@ var Negotiation = React.createClass({
   },
 
   markAsPaid: function() {
-    actions.markAsPaid(this.props.interest);
+    actions.markAsPaid(this.props.bid);
   },
 
   markAsSold: function() {
-    actions.markAsSold(this.props.interest);
+    actions.markAsSold(this.props.bid);
   },
 
   acknowledge: function() {
-    actions.acknowledge(this.props.interest);
+    actions.acknowledge(this.props.bid);
   },
 
   render: function() {
     return (
   <div>
-    <Thread id={this.props.interest.thread.id} openReply={this.props.openReply} />
+    <Thread id={this.props.bid.thread.id} openReply={this.props.openReply} />
     <div className="row">
       <div className="col xs-12">
         <button className="btn" onClick={this.acknowledge}>Acknowledge</button>

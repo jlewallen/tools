@@ -10,16 +10,25 @@ module.exports = flux.createStore({
     actions.acknowledge
   ],
 
+  updateInterest: function(interest) {
+    var interest = _(this.interests).where({ id: interest.id }).map(function(i) {
+      return _.extend(i, interest); 
+    }).first();
+    this.emitChange();
+    return interest;
+  },
+
   refreshInterests: function(data) {
     this.interests = data.interests;
     this.emitChange();
   },
 
-  acknowledge: function() {
+  acknowledge: function(interest) {
+    this.updateInterest(interest);
   },
 
   exports: {
-    getUnacknowledgedInterests: function() {
+    getInterests: function() {
       return _(this.interests).value();
     }
   }

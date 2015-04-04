@@ -34,10 +34,10 @@ var InterestsDashboard = React.createClass({
 		return (
 			<div>
         <h3>Unseed or Unacknowledged</h3>
-        <ListOfInterests filter={this.unacknowledged} />
+        <ListOfInterests filter={this.unacknowledged} openReply={true} />
 
         <h3>Pending</h3>
-        <ListOfInterests filter={this.pending} />
+        <ListOfInterests filter={this.pending}  openReply={false} />
       </div>
 		);
 	}

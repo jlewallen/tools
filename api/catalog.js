@@ -103,6 +103,7 @@ db.serialize(function() {
 
   function newThreadMessage(user, message) {
     return {
+      id: _.uniqueId("thm"),
       timestamp: new Date(),
       sender: user.email,
       body: message,

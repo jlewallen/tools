@@ -30,14 +30,6 @@ var Thread = React.createClass({
     });
   },
 
-  renderMessage: function(message) {
-    return (<div className="row">
-              <div>{message.timestamp}</div>
-              <div>{message.sender}</div>
-              <div>{message.body}</div>
-            </div>);
-  },
-
   replyToThread: function(e) {
     e.preventDefault();
 
@@ -50,17 +42,33 @@ var Thread = React.createClass({
     });
   },
 
+  renderMessage: function(message) {
+    return (<div key={message.id} className="row">
+              <div>{message.timestamp}</div>
+              <div>{message.sender}</div>
+              <div>{message.body}</div>
+            </div>);
+  },
+
+  renderReply: function() {
+    if (this.props.openReply) {
+      return (
+        <div className="row reply">
+          <form onSubmit={this.replyToThread}>
+            <textarea valueLink={this.linkState('message')} className="form-control"></textarea>
+            <button type="SUBMIT" className="btn">Reply</button>
+          </form>
+        </div>
+      );
+    }
+  },
+
 	render: function() {
     if (_.isObject(this.state.thread)) {
       return (
         <div>
           {this.state.thread.messages.map(this.renderMessage)}
-          <div className="row reply">
-            <form onSubmit={this.replyToThread}>
-              <textarea valueLink={this.linkState('message')} className="form-control"></textarea>
-              <button type="SUBMIT" className="btn">Reply</button>
-            </form>
-          </div>
+          {this.renderReply()}
         </div>
       );
     }

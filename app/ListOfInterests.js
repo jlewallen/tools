@@ -11,7 +11,7 @@ var ListOfInterests = React.createClass({
     actions.refreshCatalog();
 
     return {
-      interests: _(InterestStore.getUnacknowledgedInterests()).filter(this.props.filter).value()
+      interests: _(InterestStore.getInterests()).filter(this.props.filter).value()
     };
   },
 
@@ -25,15 +25,18 @@ var ListOfInterests = React.createClass({
 
   changeState: function () {
     this.setState({
-      interests: _(InterestStore.getUnacknowledgedInterests()).filter(this.props.filter).value()
+      interests: _(InterestStore.getInterests()).filter(this.props.filter).value()
     });
   },
 
   renderInterest: function(interest) {
-    return (<Negotiation interest={interest} />);
+    return (<Negotiation key={interest.id} interest={interest} openReply={this.props.openReply} />);
   },
 
 	render: function() {
+    if (!_.any(this.state.interests)) {
+        return (<div>None</div>);
+    }
 		return (
 			<div>
         {this.state.interests.map(this.renderInterest)}

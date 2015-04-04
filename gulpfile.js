@@ -174,6 +174,7 @@ gulp.task('deploy', function () {
   });
 });
 
+/*
 gulp.task('test', function () {
   return gulp.src('./build/testrunner-phantomjs.html').pipe(jasminePhantomJs());
-});
+});*/

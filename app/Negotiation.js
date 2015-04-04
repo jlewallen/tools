@@ -22,7 +22,6 @@ var Negotiation = React.createClass({
   },
 
   changeState: function () {
-                   console.log(Store.getItem(this.props.interest.item.number));
     this.setState({
       item: Store.getItem(this.props.interest.item.number)
     });
@@ -55,7 +54,7 @@ var Negotiation = React.createClass({
   render: function() {
     return (
   <div>
-    <Thread id={this.props.interest.thread.id} />
+    <Thread id={this.props.interest.thread.id} openReply={this.props.openReply} />
     <div className="row">
       <div className="col xs-12">
         <button className="btn" onClick={this.acknowledge}>Acknowledge</button>

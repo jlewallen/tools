@@ -80,7 +80,11 @@ var Negotiation = React.createClass({
       buttons.push((<button className="btn" onClick={this.markAsSold}>Sold</button>));
     }
     if (this.props.bid.shipped) {
-      buttons.push((<button className="btn" onClick={this.markAsPaid}>Paid</button>));
+      if (this.props.bid.paid) {
+      }
+      else {
+        buttons.push((<button className="btn" onClick={this.markAsPaid}>Paid</button>));
+      }
       buttons.push((<button className="btn" onClick={this.markAsReturned}>Returned</button>));
     }
     if (this.state.item.public) {

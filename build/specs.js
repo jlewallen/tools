@@ -10,7 +10,7 @@ describe("App", function() {
   });
 
 });
-},{"./../app/App.js":"c:\\Source\\tools\\app\\App.js","react-addons":"react-addons"}],"c:\\Source\\tools\\app\\App.js":[function(require,module,exports){
+},{"./../app/App.js":"d:\\Source\\page5of4\\tools\\app\\App.js","react-addons":"react-addons"}],"d:\\Source\\page5of4\\tools\\app\\App.js":[function(require,module,exports){
 /** @jsx React.DOM */
 var React = require('react');
 var Store = require('./Store.js');
@@ -36,7 +36,7 @@ var App = React.createClass({displayName: "App",
 	
 module.exports = App;
 
-},{"./AvailableItems.js":"c:\\Source\\tools\\app\\AvailableItems.js","./Store.js":"c:\\Source\\tools\\app\\Store.js","react":"react"}],"c:\\Source\\tools\\app\\AvailableItems.js":[function(require,module,exports){
+},{"./AvailableItems.js":"d:\\Source\\page5of4\\tools\\app\\AvailableItems.js","./Store.js":"d:\\Source\\page5of4\\tools\\app\\Store.js","react":"react"}],"d:\\Source\\page5of4\\tools\\app\\AvailableItems.js":[function(require,module,exports){
 /** @jsx React.DOM */
 var React = require('react');
 var Store = require('./Store.js');
@@ -82,7 +82,7 @@ var AvailableItems = React.createClass({displayName: "AvailableItems",
 	
 module.exports = AvailableItems;
 
-},{"./AvailableItems.js":"c:\\Source\\tools\\app\\AvailableItems.js","./ItemListing.js":"c:\\Source\\tools\\app\\ItemListing.js","./Store.js":"c:\\Source\\tools\\app\\Store.js","./actions.js":"c:\\Source\\tools\\app\\actions.js","react":"react"}],"c:\\Source\\tools\\app\\BidPanel.js":[function(require,module,exports){
+},{"./AvailableItems.js":"d:\\Source\\page5of4\\tools\\app\\AvailableItems.js","./ItemListing.js":"d:\\Source\\page5of4\\tools\\app\\ItemListing.js","./Store.js":"d:\\Source\\page5of4\\tools\\app\\Store.js","./actions.js":"d:\\Source\\page5of4\\tools\\app\\actions.js","react":"react"}],"d:\\Source\\page5of4\\tools\\app\\BidPanel.js":[function(require,module,exports){
 /** @jsx React.DOM */
 var React = require('react');
 var addons = require('react-addons');
@@ -157,7 +157,7 @@ var BidPanel = React.createClass({displayName: "BidPanel",
 	
 module.exports = BidPanel;
 
-},{"./BidStore.js":"c:\\Source\\tools\\app\\BidStore.js","./Store.js":"c:\\Source\\tools\\app\\Store.js","./Thread.js":"c:\\Source\\tools\\app\\Thread.js","./actions.js":"c:\\Source\\tools\\app\\actions.js","lodash":"c:\\Source\\tools\\node_modules\\lodash\\index.js","react":"react","react-addons":"react-addons"}],"c:\\Source\\tools\\app\\BidStore.js":[function(require,module,exports){
+},{"./BidStore.js":"d:\\Source\\page5of4\\tools\\app\\BidStore.js","./Store.js":"d:\\Source\\page5of4\\tools\\app\\Store.js","./Thread.js":"d:\\Source\\page5of4\\tools\\app\\Thread.js","./actions.js":"d:\\Source\\page5of4\\tools\\app\\actions.js","lodash":"d:\\Source\\page5of4\\tools\\node_modules\\lodash\\index.js","react":"react","react-addons":"react-addons"}],"d:\\Source\\page5of4\\tools\\app\\BidStore.js":[function(require,module,exports){
 var flux = require('flux-react');
 var actions = require('./actions.js');
 var _ = require("lodash");
@@ -224,7 +224,7 @@ module.exports = flux.createStore({
   }
 });
 
-},{"./actions.js":"c:\\Source\\tools\\app\\actions.js","flux-react":"flux-react","lodash":"c:\\Source\\tools\\node_modules\\lodash\\index.js"}],"c:\\Source\\tools\\app\\ItemListing.js":[function(require,module,exports){
+},{"./actions.js":"d:\\Source\\page5of4\\tools\\app\\actions.js","flux-react":"flux-react","lodash":"d:\\Source\\page5of4\\tools\\node_modules\\lodash\\index.js"}],"d:\\Source\\page5of4\\tools\\app\\ItemListing.js":[function(require,module,exports){
 /** @jsx React.DOM */
 var React = require('react');
 var addons = require('react-addons');
@@ -278,7 +278,7 @@ var ItemListing = React.createClass({displayName: "ItemListing",
 module.exports = ItemListing;
 
 
-},{"./BidPanel.js":"c:\\Source\\tools\\app\\BidPanel.js","./Store.js":"c:\\Source\\tools\\app\\Store.js","./actions.js":"c:\\Source\\tools\\app\\actions.js","lodash":"c:\\Source\\tools\\node_modules\\lodash\\index.js","react":"react","react-addons":"react-addons"}],"c:\\Source\\tools\\app\\Store.js":[function(require,module,exports){
+},{"./BidPanel.js":"d:\\Source\\page5of4\\tools\\app\\BidPanel.js","./Store.js":"d:\\Source\\page5of4\\tools\\app\\Store.js","./actions.js":"d:\\Source\\page5of4\\tools\\app\\actions.js","lodash":"d:\\Source\\page5of4\\tools\\node_modules\\lodash\\index.js","react":"react","react-addons":"react-addons"}],"d:\\Source\\page5of4\\tools\\app\\Store.js":[function(require,module,exports){
 var flux = require('flux-react');
 var actions = require('./actions.js');
 var _ = require("lodash");
@@ -339,7 +339,7 @@ module.exports = flux.createStore({
   }
 });
 
-},{"./actions.js":"c:\\Source\\tools\\app\\actions.js","flux-react":"flux-react","lodash":"c:\\Source\\tools\\node_modules\\lodash\\index.js"}],"c:\\Source\\tools\\app\\Thread.js":[function(require,module,exports){
+},{"./actions.js":"d:\\Source\\page5of4\\tools\\app\\actions.js","flux-react":"flux-react","lodash":"d:\\Source\\page5of4\\tools\\node_modules\\lodash\\index.js"}],"d:\\Source\\page5of4\\tools\\app\\Thread.js":[function(require,module,exports){
 /** @jsx React.DOM */
 var React = require('react');
 var ThreadStore = require('./ThreadStore.js');
@@ -420,7 +420,7 @@ var Thread = React.createClass({displayName: "Thread",
 	
 module.exports = Thread;
 
-},{"./ThreadStore.js":"c:\\Source\\tools\\app\\ThreadStore.js","./actions.js":"c:\\Source\\tools\\app\\actions.js","lodash":"c:\\Source\\tools\\node_modules\\lodash\\index.js","react":"react","react-addons":"react-addons"}],"c:\\Source\\tools\\app\\ThreadStore.js":[function(require,module,exports){
+},{"./ThreadStore.js":"d:\\Source\\page5of4\\tools\\app\\ThreadStore.js","./actions.js":"d:\\Source\\page5of4\\tools\\app\\actions.js","lodash":"d:\\Source\\page5of4\\tools\\node_modules\\lodash\\index.js","react":"react","react-addons":"react-addons"}],"d:\\Source\\page5of4\\tools\\app\\ThreadStore.js":[function(require,module,exports){
 var flux = require('flux-react');
 var actions = require('./actions.js');
 var _ = require("lodash");
@@ -451,7 +451,7 @@ module.exports = flux.createStore({
   }
 });
 
-},{"./actions.js":"c:\\Source\\tools\\app\\actions.js","flux-react":"flux-react","lodash":"c:\\Source\\tools\\node_modules\\lodash\\index.js"}],"c:\\Source\\tools\\app\\actions-factory.js":[function(require,module,exports){
+},{"./actions.js":"d:\\Source\\page5of4\\tools\\app\\actions.js","flux-react":"flux-react","lodash":"d:\\Source\\page5of4\\tools\\node_modules\\lodash\\index.js"}],"d:\\Source\\page5of4\\tools\\app\\actions-factory.js":[function(require,module,exports){
 var EventEmitter = require('eventemitter2').EventEmitter2 || require('eventemitter2');
 var safeDeepClone = require('./safeDeepClone');
 var Promise = require("promise");
@@ -498,7 +498,7 @@ var createActionFunction = function(actionName, factory) {
 
 module.exports = createActionFunction;
 
-},{"./safeDeepClone":"c:\\Source\\tools\\app\\safeDeepClone.js","eventemitter2":"c:\\Source\\tools\\node_modules\\eventemitter2\\lib\\eventemitter2.js","lodash":"c:\\Source\\tools\\node_modules\\lodash\\index.js","promise":"c:\\Source\\tools\\node_modules\\promise\\index.js"}],"c:\\Source\\tools\\app\\actions.js":[function(require,module,exports){
+},{"./safeDeepClone":"d:\\Source\\page5of4\\tools\\app\\safeDeepClone.js","eventemitter2":"d:\\Source\\page5of4\\tools\\node_modules\\eventemitter2\\lib\\eventemitter2.js","lodash":"d:\\Source\\page5of4\\tools\\node_modules\\lodash\\index.js","promise":"d:\\Source\\page5of4\\tools\\node_modules\\promise\\index.js"}],"d:\\Source\\page5of4\\tools\\app\\actions.js":[function(require,module,exports){
 var reqwest = require("reqwest");
 var createActionFunction = require("./actions-factory");
 var _ = require("lodash");
@@ -619,7 +619,7 @@ module.exports = _.extend({
   })
 });
 
-},{"./actions-factory":"c:\\Source\\tools\\app\\actions-factory.js","lodash":"c:\\Source\\tools\\node_modules\\lodash\\index.js","reqwest":"c:\\Source\\tools\\node_modules\\reqwest\\reqwest.js"}],"c:\\Source\\tools\\app\\safeDeepClone.js":[function(require,module,exports){
+},{"./actions-factory":"d:\\Source\\page5of4\\tools\\app\\actions-factory.js","lodash":"d:\\Source\\page5of4\\tools\\node_modules\\lodash\\index.js","reqwest":"d:\\Source\\page5of4\\tools\\node_modules\\reqwest\\reqwest.js"}],"d:\\Source\\page5of4\\tools\\app\\safeDeepClone.js":[function(require,module,exports){
 (function (global){
 function safeDeepClone(circularValue, refs, obj) {
   var copy, tmp;
@@ -685,7 +685,7 @@ module.exports = safeDeepClone;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],"c:\\Source\\tools\\node_modules\\browserify\\node_modules\\process\\browser.js":[function(require,module,exports){
+},{}],"d:\\Source\\page5of4\\tools\\node_modules\\browserify\\node_modules\\process\\browser.js":[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -773,7 +773,7 @@ process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
 };
 
-},{}],"c:\\Source\\tools\\node_modules\\eventemitter2\\lib\\eventemitter2.js":[function(require,module,exports){
+},{}],"d:\\Source\\page5of4\\tools\\node_modules\\eventemitter2\\lib\\eventemitter2.js":[function(require,module,exports){
 /*!
  * EventEmitter2
  * https://github.com/hij1nx/EventEmitter2
@@ -1348,7 +1348,7 @@ process.chdir = function (dir) {
   }
 }();
 
-},{}],"c:\\Source\\tools\\node_modules\\lodash\\index.js":[function(require,module,exports){
+},{}],"d:\\Source\\page5of4\\tools\\node_modules\\lodash\\index.js":[function(require,module,exports){
 (function (global){
 /**
  * @license
@@ -13156,14 +13156,14 @@ process.chdir = function (dir) {
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],"c:\\Source\\tools\\node_modules\\promise\\index.js":[function(require,module,exports){
+},{}],"d:\\Source\\page5of4\\tools\\node_modules\\promise\\index.js":[function(require,module,exports){
 'use strict';
 
 module.exports = require('./lib/core.js')
 require('./lib/done.js')
 require('./lib/es6-extensions.js')
 require('./lib/node-extensions.js')
-},{"./lib/core.js":"c:\\Source\\tools\\node_modules\\promise\\lib\\core.js","./lib/done.js":"c:\\Source\\tools\\node_modules\\promise\\lib\\done.js","./lib/es6-extensions.js":"c:\\Source\\tools\\node_modules\\promise\\lib\\es6-extensions.js","./lib/node-extensions.js":"c:\\Source\\tools\\node_modules\\promise\\lib\\node-extensions.js"}],"c:\\Source\\tools\\node_modules\\promise\\lib\\core.js":[function(require,module,exports){
+},{"./lib/core.js":"d:\\Source\\page5of4\\tools\\node_modules\\promise\\lib\\core.js","./lib/done.js":"d:\\Source\\page5of4\\tools\\node_modules\\promise\\lib\\done.js","./lib/es6-extensions.js":"d:\\Source\\page5of4\\tools\\node_modules\\promise\\lib\\es6-extensions.js","./lib/node-extensions.js":"d:\\Source\\page5of4\\tools\\node_modules\\promise\\lib\\node-extensions.js"}],"d:\\Source\\page5of4\\tools\\node_modules\\promise\\lib\\core.js":[function(require,module,exports){
 'use strict';
 
 var asap = require('asap')
@@ -13270,7 +13270,7 @@ function doResolve(fn, onFulfilled, onRejected) {
   }
 }
 
-},{"asap":"c:\\Source\\tools\\node_modules\\promise\\node_modules\\asap\\asap.js"}],"c:\\Source\\tools\\node_modules\\promise\\lib\\done.js":[function(require,module,exports){
+},{"asap":"d:\\Source\\page5of4\\tools\\node_modules\\promise\\node_modules\\asap\\asap.js"}],"d:\\Source\\page5of4\\tools\\node_modules\\promise\\lib\\done.js":[function(require,module,exports){
 'use strict';
 
 var Promise = require('./core.js')
@@ -13285,7 +13285,7 @@ Promise.prototype.done = function (onFulfilled, onRejected) {
     })
   })
 }
-},{"./core.js":"c:\\Source\\tools\\node_modules\\promise\\lib\\core.js","asap":"c:\\Source\\tools\\node_modules\\promise\\node_modules\\asap\\asap.js"}],"c:\\Source\\tools\\node_modules\\promise\\lib\\es6-extensions.js":[function(require,module,exports){
+},{"./core.js":"d:\\Source\\page5of4\\tools\\node_modules\\promise\\lib\\core.js","asap":"d:\\Source\\page5of4\\tools\\node_modules\\promise\\node_modules\\asap\\asap.js"}],"d:\\Source\\page5of4\\tools\\node_modules\\promise\\lib\\es6-extensions.js":[function(require,module,exports){
 'use strict';
 
 //This file contains the ES6 extensions to the core Promises/A+ API
@@ -13395,7 +13395,7 @@ Promise.prototype['catch'] = function (onRejected) {
   return this.then(null, onRejected);
 }
 
-},{"./core.js":"c:\\Source\\tools\\node_modules\\promise\\lib\\core.js","asap":"c:\\Source\\tools\\node_modules\\promise\\node_modules\\asap\\asap.js"}],"c:\\Source\\tools\\node_modules\\promise\\lib\\node-extensions.js":[function(require,module,exports){
+},{"./core.js":"d:\\Source\\page5of4\\tools\\node_modules\\promise\\lib\\core.js","asap":"d:\\Source\\page5of4\\tools\\node_modules\\promise\\node_modules\\asap\\asap.js"}],"d:\\Source\\page5of4\\tools\\node_modules\\promise\\lib\\node-extensions.js":[function(require,module,exports){
 'use strict';
 
 //This file contains then/promise specific extensions that are only useful for node.js interop
@@ -13460,7 +13460,7 @@ Promise.prototype.nodeify = function (callback, ctx) {
   })
 }
 
-},{"./core.js":"c:\\Source\\tools\\node_modules\\promise\\lib\\core.js","asap":"c:\\Source\\tools\\node_modules\\promise\\node_modules\\asap\\asap.js"}],"c:\\Source\\tools\\node_modules\\promise\\node_modules\\asap\\asap.js":[function(require,module,exports){
+},{"./core.js":"d:\\Source\\page5of4\\tools\\node_modules\\promise\\lib\\core.js","asap":"d:\\Source\\page5of4\\tools\\node_modules\\promise\\node_modules\\asap\\asap.js"}],"d:\\Source\\page5of4\\tools\\node_modules\\promise\\node_modules\\asap\\asap.js":[function(require,module,exports){
 (function (process){
 
 // Use the fastest possible means to execute a task in a future turn
@@ -13578,7 +13578,7 @@ module.exports = asap;
 
 }).call(this,require('_process'))
 
-},{"_process":"c:\\Source\\tools\\node_modules\\browserify\\node_modules\\process\\browser.js"}],"c:\\Source\\tools\\node_modules\\reqwest\\reqwest.js":[function(require,module,exports){
+},{"_process":"d:\\Source\\page5of4\\tools\\node_modules\\browserify\\node_modules\\process\\browser.js"}],"d:\\Source\\page5of4\\tools\\node_modules\\reqwest\\reqwest.js":[function(require,module,exports){
 /*!
   * Reqwest! A general purpose XHR connection manager
   * license MIT (c) Dustin Diaz 2014

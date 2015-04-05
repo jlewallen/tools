@@ -16,7 +16,8 @@ var ItemEditor = React.createClass({
       number: '',
       name: '',
       description: '',
-      price: '0'
+      price: '0',
+      public: false
     };
     var existingOrNull = Store.getItem(this.props.number);
     var item = existingOrNull || newItem;
@@ -25,7 +26,8 @@ var ItemEditor = React.createClass({
       number: item.number,
       name: item.name,
       description: item.description,
-      price: item.price
+      price: item.price,
+      item: item
     };
   },
 
@@ -47,6 +49,28 @@ var ItemEditor = React.createClass({
     actions.saveItem(this.state).then(function() {
       self.context.router.transitionTo('home');
     });
+  },
+
+  markAsPublic: function() {
+    actions.markAsPublic(this.state.item);
+  },
+
+  markAsPrivate: function() {
+    actions.markAsPrivate(this.state.item);
+  },
+
+  renderButtons: function() {
+    var buttons = [];
+    buttons.push(<button className="btn btn-dark" onClick={this.save}>Save</button>);
+    if (this.state.saved) {
+      if (this.state.item.public) {
+        buttons.push((<button className="btn btn-sm" onClick={this.markAsPrivate}>Private</button>));
+      }
+      else {
+        buttons.push((<button className="btn btn-sm" onClick={this.markAsPublic}>Public</button>));
+      }
+    }
+    return buttons;
   },
 
 	render: function() {
@@ -75,7 +99,7 @@ var ItemEditor = React.createClass({
         </div>
 
         <div>
-          <button className="btn btn-dark" onClick={this.save}>Save</button>
+          {this.renderButtons()}
         </div>
       </div>
 		);

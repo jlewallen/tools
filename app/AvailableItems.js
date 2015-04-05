@@ -1,21 +1,23 @@
 /** @jsx React.DOM */
 var React = require('react');
 var Store = require('./Store.js');
-var ItemListing = require("./ItemListing.js");
-var AvailableItems = require("./AvailableItems.js");
-var actions = require('./actions.js');
+var ItemListing = require('./ItemListing');
+var AvailableItems = require('./AvailableItems');
+var actions = require('./actions');
+var _ = require('lodash');
 
 var AvailableItems = React.createClass({
   getInitialState: function () {
-    actions.refreshCatalog();
-
+    var catalog = _(Store.getCatalog());
     return {
-      catalog: Store.getCatalog()
+      available: catalog.where({ sold: false }).value(),
+      sold: catalog.where({ sold: true }).value()
     };
   },
 
   componentWillMount: function () {
     Store.addChangeListener(this.changeState);
+    actions.refreshCatalog();
   },
 
   componentWillUnmount: function () {
@@ -23,9 +25,7 @@ var AvailableItems = React.createClass({
   },
 
   changeState: function () {
-    this.setState({
-      catalog: Store.getCatalog()
-    });
+    this.setState(this.getInitialState());
   },
 
   renderItem: function(item) {
@@ -34,8 +34,16 @@ var AvailableItems = React.createClass({
 
 	render: function() {
 		return (
-			<div className="container">
-        {this.state.catalog.map(this.renderItem)}
+      <div>
+        <h3>Available Items</h3>
+        <div className="container">
+          {this.state.available.map(this.renderItem)}
+        </div>
+
+        <h3>Sold Items</h3>
+        <div className="container">
+          {this.state.sold.map(this.renderItem)}
+        </div>
       </div>
 		);
 	}

@@ -11,7 +11,7 @@ var createActionFunction = function(actionName, factory) {
     }
 
     if (_.isFunction(factory)) {
-      factory.apply({}, args).then(function() {
+      return factory.apply({}, args).then(function() {
         try {
           var newArgs = ['trigger'].concat(safeDeepClone('[Circular]', [], Array.prototype.slice.call(arguments, 0)));
           fn.emit.apply(fn, newArgs);
@@ -23,6 +23,9 @@ var createActionFunction = function(actionName, factory) {
     }
     else {
       fn.emit.apply(fn, ['trigger'].concat(args));
+      return new Promise(function(resolve, reject) {
+        resolve();
+      });
     }
   };
 

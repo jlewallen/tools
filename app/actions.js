@@ -115,5 +115,13 @@ module.exports = _.extend({
       method: 'POST',
       url: item.urls.private
     });
-  })
+  }),
+  saveItem: createActionFunction('saveItem', function(item) {
+    var url = _.isEmpty(item.number) ? '/api/items' : '/api/items/' + item.number ;
+    return api({
+      method: 'POST',
+      url: url,
+      data: JSON.stringify(item)
+    });
+  }),
 });

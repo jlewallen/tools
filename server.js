@@ -102,6 +102,11 @@ app.post('/api/threads/:id', function(req, res) {
   return res.send(threads.replyToThread(user, req.params.id, req.body));
 });
 
+app.post('/api/items/:number', function(req, res) {
+  var user = getUser(req);
+  return res.send(catalog.saveItem(user, req.params.number, req.body));
+});
+
 console.log("listening on port 3000");
 
 app.listen(3000);

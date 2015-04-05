@@ -87,6 +87,12 @@ var _ = require("lodash");
         return createItemForUser(user, item);
     };
 
+    self.saveItem = function(user, number, item) {
+        var existing = items.getByNumber(number).first() || {};
+        items.save(_.extend(existing, item));
+        return createItemForUser(user, item);
+    };
+
     module.exports = self;
 })();
 

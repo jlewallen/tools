@@ -33,6 +33,14 @@ var ItemListing = React.createClass({
       return (<b>This item has been sold.</b>);
     }
   },
+  renderAdminPanel: function() {
+    return (
+      <div>
+        <a href={'#/items/' + this.state.item.number}>Edit</a>
+      </div>
+    );
+    return (<div></div>);
+  },
 	render: function() {
 		return (
 			<div>
@@ -41,6 +49,7 @@ var ItemListing = React.createClass({
           <div className="description">{this.state.item.description}</div>
           <div className="price">{this.state.item.price}</div>
           {this.renderLowerPanel()}
+          {this.renderAdminPanel()}
         </div>
       </div>
 		);

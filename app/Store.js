@@ -10,7 +10,8 @@ module.exports = flux.createStore({
     actions.addBid,
     actions.bidOnItem,
     actions.markAsPublic,
-    actions.markAsPrivate
+    actions.markAsPrivate,
+    actions.saveItem
   ],
 
   refreshCatalog: function(data) {
@@ -41,10 +42,14 @@ module.exports = flux.createStore({
     this.updateItem(item);
   },
 
+  saveItem: function(item) {
+    this.updateItem(item);
+  },
+
   updateItem: function(item) {
     var item = _(this.catalog).where({ number: item.number }).map(function(i) {
       return _.extend(i, item); 
-    });
+    }).first();
     this.emitChange();
   },
 

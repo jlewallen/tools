@@ -32,6 +32,9 @@ var _ = require("lodash");
         };
 
         self.save = function(entry) {
+            if (_.isEmpty(entry.id)) {
+              entry.id = _.uniqueId(name);
+            }
             var existing = self.getById(entry.id).first();
             if (_.isObject(existing)) {
                 _.extend(existing, entry);

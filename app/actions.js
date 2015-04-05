@@ -25,103 +25,109 @@ function api(options) {
   });
 }
 
-module.exports = _.extend({
-  refreshCatalog: createActionFunction('refreshCatalog', function() {
+function createActionFunctions(obj) {
+  return _.mapValues(obj, function(value, key) {
+    return createActionFunction(key, value);
+  });
+}
+
+module.exports = createActionFunctions({
+  refreshCatalog: function() {
     return api({
       url: '/api/catalog'
     });
-  }),
-  loadThread: createActionFunction('loadThread', function(id) {
+  },
+  loadThread: function(id) {
     return api({
       url: '/api/threads/' + id
     });
-  }),
-  refreshBids: createActionFunction('refreshBids', function() {
+  },
+  refreshBids: function() {
     return api({
       url: '/api/bids/pending'
     });
-  }),
-  addBid: createActionFunction('addBid'),
-  bidOnItem: createActionFunction('bidOnItem', function(item, message) {
+  },
+  addBid: _.noop,
+  bidOnItem: function(item, message) {
     return api({
       method: 'POST',
       url: item.urls.bid,
       data: JSON.stringify({ message: message })
     });
-  }),
-  replyToThread: createActionFunction('replyToThread', function(thread, reply) {
+  },
+  replyToThread: function(thread, reply) {
     return api({
       method: 'POST',
       url: thread.urls.reply,
       data: JSON.stringify(reply)
     });
-  }),
-  acknowledge: createActionFunction('acknowledge', function(item) {
+  },
+  acknowledge: function(item) {
     return api({
        method: 'POST',
        url: item.urls.acknowledge
      });
-  }),
-  markAsAvailable: createActionFunction('markAsAvailable', function(item) {
+  },
+  markAsAvailable: function(item) {
     return api({
       method: 'POST',
       url: item.urls.available
     });
-  }),
-  cancelBid: createActionFunction('cancelBid', function(bid) {
+  },
+  cancelBid: function(bid) {
     return api({
       method: 'POST',
       url: bid.urls.cancel
     });
-  }),
-  closeBid: createActionFunction('closeBid', function(bid) {
+  },
+  closeBid: function(bid) {
     return api({
       method: 'POST',
       url: bid.urls.close
     });
-  }),
-  markAsPaid: createActionFunction('markAsPaid', function(bid) {
+  },
+  markAsPaid: function(bid) {
     return api({
       method: 'POST',
       url: bid.urls.paid
     });
-  }),
-  markAsSold: createActionFunction('markAsSold', function(bid) {
+  },
+  markAsSold: function(bid) {
     return api({
       method: 'POST',
       url: bid.urls.sold
     });
-  }),
-  markAsReturned: createActionFunction('markAsReturned', function(bid) {
+  },
+  markAsReturned: function(bid) {
     return api({
       method: 'POST',
       url: bid.urls.returned
     });
-  }),
-  markAsShipped: createActionFunction('markAsShipped', function(bid) {
+  },
+  markAsShipped: function(bid) {
     return api({
       method: 'POST',
       url: bid.urls.shipped
     });
-  }),
-  markAsPublic: createActionFunction('markAsPublic', function(item) {
+  },
+  markAsPublic: function(item) {
     return api({
       method: 'POST',
       url: item.urls.public
     });
-  }),
-  markAsPrivate: createActionFunction('markAsPrivate', function(item) {
+  },
+  markAsPrivate: function(item) {
     return api({
       method: 'POST',
       url: item.urls.private
     });
-  }),
-  saveItem: createActionFunction('saveItem', function(item) {
+  },
+  saveItem: function(item) {
     var url = _.isEmpty(item.number) ? '/api/items' : '/api/items/' + item.number ;
     return api({
       method: 'POST',
       url: url,
       data: JSON.stringify(item)
     });
-  }),
+  },
 });

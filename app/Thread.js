@@ -56,7 +56,7 @@ var Thread = React.createClass({
         <div className="row reply">
           <form onSubmit={this.replyToThread}>
             <textarea valueLink={this.linkState('message')} className="form-control"></textarea>
-            <button type="SUBMIT" className="btn">Reply</button>
+            <button type="SUBMIT" className="btn btn-small">Reply</button>
           </form>
         </div>
       );

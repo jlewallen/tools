@@ -20,7 +20,6 @@ function api(options) {
     reqwest(_.extend({
       type: 'json',
       contentType: 'application/json',
-      url: '/api/catalog',
       headers: getHeaders(),
       success: function(data) {
         delete pending[options.url];
@@ -59,7 +58,7 @@ module.exports = createActionFunctions({
       url: '/api/bids/pending'
     });
   },
-  addBid: _.noop,
+  addBid: true,
   bidOnItem: function(item, message) {
     return api({
       method: 'POST',

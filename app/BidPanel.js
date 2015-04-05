@@ -11,8 +11,10 @@ var BidPanel = React.createClass({
   mixins: [addons.LinkedStateMixin],
 
   getInitialState: function() {
+    var item = Store.getItem(this.props.number);
     return {
-      item: Store.getItem(this.props.number)
+      item: item,
+      showBids: false
     };
   },
 
@@ -25,9 +27,7 @@ var BidPanel = React.createClass({
   },
   
   changeState: function() {
-    this.setState({
-      item: Store.getItem(this.props.number)
-    });
+    this.setState(this.getInitialState());
   },
 
   addBid: function() {
@@ -39,14 +39,24 @@ var BidPanel = React.createClass({
     actions.bidOnItem(this.state.item, this.state.message);
   },
 
+  showConversation: function() {
+    this.setState({
+      showBids: true
+    });
+  },
+
   renderMyBid: function(bid) {
+    if (bid.closed && this.state.showBids === false) {
+      return (
+        <button className="btn btn-small btn-success" onClick={this.showConversation}>Show Conversation</button>
+      );
+    }
     return (<Thread id={bid.thread.id} openReply={true} />);
   },
 
 	render: function() {
     if (this.state.item.youAreInterested) {
       return (<div>
-                <p>You are interested.</p>
                 {this.state.item.yourBids.map(this.renderMyBid)}
               </div>);
     }
@@ -59,7 +69,7 @@ var BidPanel = React.createClass({
       return (
         <form onSubmit={this.bidOnItem}>
           <textarea valueLink={this.linkState('message')} className="form-control"></textarea>
-          <button type="SUBMIT" className="btn">Send</button>
+          <button type="SUBMIT" className="btn btn-small">Send</button>
         </form>
       );
     }

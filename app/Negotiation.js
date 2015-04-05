@@ -22,9 +22,7 @@ var Negotiation = React.createClass({
   },
 
   changeState: function () {
-    this.setState({
-      item: Store.getItem(this.props.bid.item.number)
-    });
+    this.setState(this.getInitialState());
   },
 
   markAsPublic: function() {

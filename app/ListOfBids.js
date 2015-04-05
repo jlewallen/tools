@@ -7,9 +7,6 @@ var _ = require("lodash");
 
 var ListOfBids = React.createClass({
   getInitialState: function () {
-    actions.refreshBids();
-    actions.refreshCatalog();
-
     return {
       bids: _(BidStore.getBids()).filter(this.props.filter).value()
     };
@@ -17,6 +14,8 @@ var ListOfBids = React.createClass({
 
   componentWillMount: function () {
     BidStore.addChangeListener(this.changeState);
+    actions.refreshBids();
+    actions.refreshCatalog();
   },
 
   componentWillUnmount: function () {
@@ -24,9 +23,7 @@ var ListOfBids = React.createClass({
   },
 
   changeState: function () {
-    this.setState({
-      bids: _(BidStore.getBids()).filter(this.props.filter).value()
-    });
+    this.setState(this.getInitialState());
   },
 
   renderBid: function(bid) {

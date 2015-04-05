@@ -8,17 +8,26 @@ function getHeaders() {
   };
 }
 
+var pending = {};
+
 function api(options) {
-  return new Promise(function(resolve, reject) {
+  if (_.isNumber(options.concurrency)) {
+    if (_.isObject(pending[options.url])) {
+      return pending[options.url];
+    }
+  }
+  return pending[options.url] = new Promise(function(resolve, reject) {
     reqwest(_.extend({
       type: 'json',
       contentType: 'application/json',
       url: '/api/catalog',
       headers: getHeaders(),
       success: function(data) {
+        delete pending[options.url];
         resolve(data);
       },
       error: function(data) {
+        delete pending[options.url];
         reject(data);
       }
     }, options));
@@ -34,16 +43,19 @@ function createActionFunctions(obj) {
 module.exports = createActionFunctions({
   refreshCatalog: function() {
     return api({
+      concurrency: 1,
       url: '/api/catalog'
     });
   },
   loadThread: function(id) {
     return api({
+      concurrency: 1,
       url: '/api/threads/' + id
     });
   },
   refreshBids: function() {
     return api({
+      concurrency: 1,
       url: '/api/bids/pending'
     });
   },

@@ -1,24 +1,24 @@
 /** @jsx React.DOM */
 var React = require('react');
-var BidStore = require('./BidStore.js');
-var ThreadStore = require('./ThreadStore.js');
-var Store = require('./Store.js');
-var Thread = require('./Thread.js');
-var actions = require('./actions.js');
+var BidStore = require('./BidStore');
+var ThreadStore = require('./ThreadStore');
+var CatalogStore = require('./CatalogStore');
+var Thread = require('./Thread');
+var actions = require('./actions');
 
 var Negotiation = React.createClass({
   getInitialState: function () {
     return {
-      item: Store.getItem(this.props.bid.item.number)
+      item: CatalogStore.getItem(this.props.bid.item.number)
     };
   },
 
   componentWillMount: function () {
-    Store.addChangeListener(this.changeState);
+    CatalogStore.addChangeListener(this.changeState);
   },
 
   componentWillUnmount: function () {
-    Store.removeChangeListener(this.changeState);
+    CatalogStore.removeChangeListener(this.changeState);
   },
 
   changeState: function () {

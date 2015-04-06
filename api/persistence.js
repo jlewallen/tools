@@ -112,6 +112,25 @@ var _ = require("lodash");
         }
     });
 
+    self.stores = self.createStore("stores", {
+      newStore: function(name) {
+        return {
+          id: _.uniqueId("store"),
+          name: name
+        };
+      }
+    });
+
+    self.users = self.createStore("users", {
+      newUser: function(email, name) {
+        return {
+          id: _.uniqueId("user"),
+          email: email,
+          name: name
+        };
+      }
+    });
+
     module.exports = self;
 
     return self;

@@ -14,8 +14,7 @@ var ListOfBids = React.createClass({
 
   componentWillMount: function () {
     BidStore.addChangeListener(this.changeState);
-    actions.refreshBids();
-    actions.refreshCatalog();
+    actions.loadBids();
   },
 
   componentWillUnmount: function () {

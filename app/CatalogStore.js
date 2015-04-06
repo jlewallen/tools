@@ -6,7 +6,8 @@ module.exports = flux.createStore({
   catalog: [],
 
   actions: [
-    actions.refreshCatalog,
+    actions.openStore,
+    actions.loadCatalog,
     actions.addBid,
     actions.bidOnItem,
     actions.markAsPublic,
@@ -14,7 +15,10 @@ module.exports = flux.createStore({
     actions.saveItem
   ],
 
-  refreshCatalog: function(data) {
+  openStore: function(store) {
+  },
+
+  loadCatalog: function(data) {
     this.catalog = data.catalog;
     this.emitChange();
   },

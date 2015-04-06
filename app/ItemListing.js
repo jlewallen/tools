@@ -1,9 +1,9 @@
 /** @jsx React.DOM */
 var React = require('react');
 var addons = require('react-addons');
-var Store = require('./Store.js');
-var actions = require('./actions.js');
-var BidPanel = require('./BidPanel.js');
+var CatalogStore = require('./CatalogStore');
+var actions = require('./actions');
+var BidPanel = require('./BidPanel');
 var _ = require('lodash');
 
 var ItemListing = React.createClass({
@@ -11,19 +11,17 @@ var ItemListing = React.createClass({
 
   getInitialState: function() {
     return {
-      item: Store.getItem(this.props.number)
+      item: CatalogStore.getItem(this.props.number)
     };
   },
   componentWillMount: function() {
-    Store.addChangeListener(this.changeState);
+    CatalogStore.addChangeListener(this.changeState);
   },
   componentWillUnmount: function() {
-    Store.removeChangeListener(this.changeState);
+    CatalogStore.removeChangeListener(this.changeState);
   },
   changeState: function() {
-    this.setState({
-      item: Store.getItem(this.props.number)
-    });
+    this.setState(this.getInitialState());
   },
   renderLowerPanel: function() {
     if (!this.state.item.sold) {

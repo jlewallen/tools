@@ -6,7 +6,7 @@ module.exports = flux.createStore({
   bids: [],
 
   actions: [
-    actions.refreshBids,
+    actions.loadBids,
     actions.acknowledge,
     actions.cancelBid,
     actions.closeBid,
@@ -24,7 +24,7 @@ module.exports = flux.createStore({
     return bid;
   },
 
-  refreshBids: function(data) {
+  loadBids: function(data) {
     this.bids = data.bids;
     this.emitChange();
   },

@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 var React = require('react');
-var Store = require('./Store.js');
+var CatalogStore = require('./CatalogStore.js');
 var ItemListing = require('./ItemListing');
 var AvailableItems = require('./AvailableItems');
 var actions = require('./actions');
@@ -8,7 +8,7 @@ var _ = require('lodash');
 
 var AvailableItems = React.createClass({
   getInitialState: function () {
-    var catalog = _(Store.getCatalog());
+    var catalog = _(CatalogStore.getCatalog());
     return {
       available: catalog.where({ sold: false }).value(),
       sold: catalog.where({ sold: true }).value()
@@ -16,12 +16,11 @@ var AvailableItems = React.createClass({
   },
 
   componentWillMount: function () {
-    Store.addChangeListener(this.changeState);
-    actions.refreshCatalog();
+    CatalogStore.addChangeListener(this.changeState);
   },
 
   componentWillUnmount: function () {
-    Store.removeChangeListener(this.changeState);
+    CatalogStore.removeChangeListener(this.changeState);
   },
 
   changeState: function () {

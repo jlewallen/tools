@@ -2,6 +2,7 @@
 var React = require('react');
 var Router = require('react-router');
 var App = require('./App');
+var StoreChooser = require('./StoreChooser');
 var AdminApp = require('./AdminApp');
 var NewItem = require('./NewItem');
 var EditItem = require('./EditItem');
@@ -22,7 +23,9 @@ var Layout = React.createClass({
             <li><Link to="new-item">New Item</Link></li>
           </ul>
         </header>
-        <RouteHandler/>
+        <StoreChooser>
+          <RouteHandler/>
+        </StoreChooser>
       </div>
     );
   }

@@ -6,6 +6,9 @@ var app = express();
 var catalog = require("./api/catalog");
 var bids = require("./api/bids");
 var threads = require("./api/threads");
+var users = require("./api/users");
+var stores = require("./api/stores");
+var data = require("./api/data");
 
 app.use(serveStatic(__dirname + '/build'))
 var bodyParser = require('body-parser')
@@ -27,9 +30,23 @@ app.get('/api/bids/pending', function(req, res) {
   return res.send(bids.getBids(user));
 });
 
-app.get('/api/catalog', function(req, res) {
+app.get('/api', function(req, res) {
   var user = getUser(req);
-  return res.send(catalog.getCatalog(user));
+  return res.send({
+    urls: {
+      stores: "/api/stores"
+    }
+  });
+});
+
+app.get('/api/stores', function(req, res) {
+  var user = getUser(req);
+  return res.send(stores.getStores(user));
+});
+
+app.get('/api/stores/:storeId/catalog', function(req, res) {
+  var user = getUser(req);
+  return res.send(catalog.getCatalog(user, req.params.storeId));
 });
 
 app.post('/api/item/:number/bid', function(req, res) {

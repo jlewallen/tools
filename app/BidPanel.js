@@ -1,17 +1,17 @@
 /** @jsx React.DOM */
 var React = require('react');
 var addons = require('react-addons');
-var Thread = require("./Thread.js");
-var Store = require('./Store.js');
-var BidStore = require('./BidStore.js');
-var actions = require('./actions.js');
+var Thread = require('./Thread');
+var CatalogStore = require('./CatalogStore');
+var BidStore = require('./BidStore');
+var actions = require('./actions');
 var _ = require('lodash');
 
 var BidPanel = React.createClass({
   mixins: [addons.LinkedStateMixin],
 
   getInitialState: function() {
-    var item = Store.getItem(this.props.number);
+    var item = CatalogStore.getItem(this.props.number);
     return {
       item: item,
       showBids: false
@@ -19,11 +19,11 @@ var BidPanel = React.createClass({
   },
 
   componentWillMount: function() {
-    Store.addChangeListener(this.changeState);
+    CatalogStore.addChangeListener(this.changeState);
   },
   
   componentWillUnmount: function() {
-    Store.removeChangeListener(this.changeState);
+    CatalogStore.removeChangeListener(this.changeState);
   },
   
   changeState: function() {

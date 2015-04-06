@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 var React = require('react');
 var addons = require('react-addons');
-var Store = require('./Store');
+var CatalogStore = require('./CatalogStore');
 var actions = require('./actions');
 var _ = require('lodash');
 
@@ -19,7 +19,7 @@ var ItemEditor = React.createClass({
       price: '0',
       public: false
     };
-    var existingOrNull = Store.getItem(this.props.number);
+    var existingOrNull = CatalogStore.getItem(this.props.number);
     var item = existingOrNull || newItem;
     return {
       saved: _.isObject(existingOrNull),
@@ -32,12 +32,11 @@ var ItemEditor = React.createClass({
   },
 
   componentWillMount: function() {
-    Store.addChangeListener(this.changeState);
-    actions.refreshCatalog();
+    CatalogStore.addChangeListener(this.changeState);
   },
   
   componentWillUnmount: function() {
-    Store.removeChangeListener(this.changeState);
+    CatalogStore.removeChangeListener(this.changeState);
   },
 
   changeState: function() {

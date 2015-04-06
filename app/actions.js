@@ -40,10 +40,27 @@ function createActionFunctions(obj) {
 }
 
 module.exports = createActionFunctions({
-  refreshCatalog: function() {
+  loadRoot: function() {
     return api({
       concurrency: 1,
-      url: '/api/catalog'
+      url: '/api'
+    });
+  },
+  loadStores: function() {
+    return api({
+      concurrency: 1,
+      url: '/api/stores'
+    });
+  },
+  openStore: true,
+  loadCatalog: function(store) {
+    if (!_.isObject(store)) {
+      console.log("No current store.");
+      return Promise.resolve({ });
+    }
+    return api({
+      concurrency: 1,
+      url: store.urls.catalog
     });
   },
   loadThread: function(id) {
@@ -52,7 +69,7 @@ module.exports = createActionFunctions({
       url: '/api/threads/' + id
     });
   },
-  refreshBids: function() {
+  loadBids: function() {
     return api({
       concurrency: 1,
       url: '/api/bids/pending'

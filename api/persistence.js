@@ -64,8 +64,8 @@ var _ = require("lodash");
     });
 
     self.bids = self.createStore("bids", {
-        getByItemAndUser: function(number, email) {
-            return this.getAll().where({number: number, email: email});
+        getByItemAndUser: function(itemId, email) {
+            return this.getAll().where({itemId: itemId, email: email});
         },
 
         newBid: function(user, item) {
@@ -73,7 +73,7 @@ var _ = require("lodash");
                 id: _.uniqueId("bid"),
                 created: new Date(),
                 modified: new Date(),
-                number: item.number,
+                itemId: item.id,
                 email: user.email,
                 won: false,
                 shipped: false,

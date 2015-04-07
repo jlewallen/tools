@@ -7,16 +7,16 @@ var _ = require("lodash");
     var items = persistence.items;
 
     function createItemForUser(user, item) {
-        var yourBids = persistence.bids.getByItemAndUser(item.number, user.email);
+        var yourBids = persistence.bids.getByItemAndUser(item.id, user.email);
         return _.extend({}, item, {
             youAreInterested: yourBids.any(),
             yourBids: yourBids.value(),
             urls: {
-                bid: "/api/item/" + item.number + "/bid",
-                unavailable: "/api/item/" + item.number + "/unavailable",
-                available: "/api/item/" + item.number + "/available",
-                public: "/api/item/" + item.number + "/public",
-                private: "/api/item/" + item.number + "/private"
+                bid: "/api/item/" + item.id + "/bid",
+                unavailable: "/api/item/" + item.id + "/unavailable",
+                available: "/api/item/" + item.id + "/available",
+                public: "/api/item/" + item.id + "/public",
+                private: "/api/item/" + item.id + "/private"
             }
         });
     }
@@ -30,33 +30,33 @@ var _ = require("lodash");
         };
     };
 
-    self.bid = function(user, number, data) {
+    self.bid = function(user, id, data) {
         // TODO Prevent duplicates per user.
-        var item = items.getByNumber(number).first();
+        var item = items.getById(id).first();
         var bid = persistence.bids.newBid(user, item);
-        var tags = [bid.id, item.number];
+        var tags = [bid.id, item.id];
         var thread = persistence.threads.newThread(user, bid.thread.id, tags, persistence.threads.newThreadMessage(user, data.message));
         persistence.bids.save(bid);
         persistence.threads.save(thread);
         return createItemForUser(user, item);
     };
 
-    self.markAsPrivate = function(user, number) {
-        var item = items.getByNumber(number).first();
+    self.markAsPrivate = function(user, id) {
+        var item = items.getById(id).first();
         item.public = false;
         items.save(item);
         return createItemForUser(user, item);
     };
 
-    self.markAsPublic = function(user, number) {
-        var item = items.getByNumber(number).first();
+    self.markAsPublic = function(user, id) {
+        var item = items.getById(id).first();
         item.public = true;
         items.save(item);
         return createItemForUser(user, item);
     };
 
-    self.saveItem = function(user, number, item) {
-        var existing = items.getByNumber(number).first() || {};
+    self.saveItem = function(user, id, item) {
+        var existing = items.getById(id).first() || {};
         items.save(_.extend(existing, item));
         return createItemForUser(user, item);
     };

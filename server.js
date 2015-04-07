@@ -49,59 +49,59 @@ app.get('/api/stores/:storeId/catalog', function(req, res) {
   return res.send(catalog.getCatalog(user, req.params.storeId));
 });
 
-app.post('/api/item/:number/bid', function(req, res) {
+app.post('/api/item/:id/bid', function(req, res) {
   var user = getUser(req);
-  return res.send(catalog.bid(user, req.params.number, req.body));
+  return res.send(catalog.bid(user, req.params.id, req.body));
 });
 
-app.post('/api/item/:number/public', function(req, res) {
+app.post('/api/item/:id/public', function(req, res) {
   var user = getUser(req);
-  return res.send(catalog.markAsPublic(user, req.params.number, req.body));
+  return res.send(catalog.markAsPublic(user, req.params.id, req.body));
 });
 
-app.post('/api/item/:number/private', function(req, res) {
+app.post('/api/item/:id/private', function(req, res) {
   var user = getUser(req);
-  return res.send(catalog.markAsPrivate(user, req.params.number, req.body));
+  return res.send(catalog.markAsPrivate(user, req.params.id, req.body));
 });
 
-app.post('/api/item/:number/bids/:bidId/acknowledge', function(req, res) {
+app.post('/api/item/:id/bids/:bidId/acknowledge', function(req, res) {
   var user = getUser(req);
-  return res.send(bids.acknowledge(user, req.params.number, req.params.bidId, req.body));
+  return res.send(bids.acknowledge(user, req.params.id, req.params.bidId, req.body));
 });
 
-app.post('/api/item/:number/bids/:bidId/cancel', function(req, res) {
+app.post('/api/item/:id/bids/:bidId/cancel', function(req, res) {
   var user = getUser(req);
-  return res.send(bids.cancelBid(user, req.params.number, req.params.bidId, req.body));
+  return res.send(bids.cancelBid(user, req.params.id, req.params.bidId, req.body));
 });
 
-app.post('/api/item/:number/bids/:bidId/paid', function(req, res) {
+app.post('/api/item/:id/bids/:bidId/paid', function(req, res) {
   var user = getUser(req);
-  return res.send(bids.markAsPaid(user, req.params.number, req.params.bidId, req.body));
+  return res.send(bids.markAsPaid(user, req.params.id, req.params.bidId, req.body));
 });
 
-app.post('/api/item/:number/bids/:bidId/shipped', function(req, res) {
+app.post('/api/item/:id/bids/:bidId/shipped', function(req, res) {
   var user = getUser(req);
-  return res.send(bids.markAsShipped(user, req.params.number, req.params.bidId, req.body));
+  return res.send(bids.markAsShipped(user, req.params.id, req.params.bidId, req.body));
 });
 
-app.post('/api/item/:number/bids/:bidId/returned', function(req, res) {
+app.post('/api/item/:id/bids/:bidId/returned', function(req, res) {
   var user = getUser(req);
-  return res.send(bids.markAsReturned(user, req.params.number, req.params.bidId, req.body));
+  return res.send(bids.markAsReturned(user, req.params.id, req.params.bidId, req.body));
 });
 
-app.post('/api/item/:number/bids/:bidId/sold', function(req, res) {
+app.post('/api/item/:id/bids/:bidId/sold', function(req, res) {
   var user = getUser(req);
-  return res.send(bids.markAsSold(user, req.params.number, req.params.bidId, req.body));
+  return res.send(bids.markAsSold(user, req.params.id, req.params.bidId, req.body));
 });
 
-app.post('/api/item/:number/bids/:bidId/close', function(req, res) {
+app.post('/api/item/:id/bids/:bidId/close', function(req, res) {
   var user = getUser(req);
-  return res.send(bids.closeBid(user, req.params.number, req.params.bidId, req.body));
+  return res.send(bids.closeBid(user, req.params.id, req.params.bidId, req.body));
 });
 
-app.post('/api/item/:number/share', function(req, res) {
+app.post('/api/item/:id/share', function(req, res) {
   var user = getUser(req);
-  return res.send(catalog.shareWith(user, req.params.number, req.body));
+  return res.send(catalog.shareWith(user, req.params.id, req.body));
 });
 
 app.get('/api/threads', function(req, res) {
@@ -119,9 +119,9 @@ app.post('/api/threads/:id', function(req, res) {
   return res.send(threads.replyToThread(user, req.params.id, req.body));
 });
 
-app.post('/api/items/:number', function(req, res) {
+app.post('/api/items/:id', function(req, res) {
   var user = getUser(req);
-  return res.send(catalog.saveItem(user, req.params.number, req.body));
+  return res.send(catalog.saveItem(user, req.params.id, req.body));
 });
 
 console.log("listening on port 3000");

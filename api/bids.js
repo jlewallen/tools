@@ -8,17 +8,17 @@ var _ = require("lodash");
     var items = persistence.items;
 
     function createBidForUser(user, bid) {
-        var item = persistence.items.getByNumber(bid.number).first();
+        var item = persistence.items.getById(bid.itemId).first();
         return _.extend({}, bid, {
             item: item,
             urls: {
-                acknowledge: "/api/item/" + item.number + "/bids/" + bid.id + "/acknowledge",
-                shipped: "/api/item/" + item.number + "/bids/" + bid.id + "/shipped",
-                returned: "/api/item/" + item.number + "/bids/" + bid.id + "/returned",
-                paid: "/api/item/" + item.number + "/bids/" + bid.id + "/paid",
-                sold: "/api/item/" + item.number + "/bids/" + bid.id + "/sold",
-                close: "/api/item/" + item.number + "/bids/" + bid.id + "/close",
-                cancel: "/api/item/" + item.number + "/bids/" + bid.id + "/cancel",
+                acknowledge: "/api/item/" + item.id + "/bids/" + bid.id + "/acknowledge",
+                shipped: "/api/item/" + item.id + "/bids/" + bid.id + "/shipped",
+                returned: "/api/item/" + item.id + "/bids/" + bid.id + "/returned",
+                paid: "/api/item/" + item.id + "/bids/" + bid.id + "/paid",
+                sold: "/api/item/" + item.id + "/bids/" + bid.id + "/sold",
+                close: "/api/item/" + item.id + "/bids/" + bid.id + "/close",
+                cancel: "/api/item/" + item.id + "/bids/" + bid.id + "/cancel",
                 thread: "/api/threads/" + bid.thread.id
             }
         });
@@ -30,16 +30,16 @@ var _ = require("lodash");
         };
     };
 
-    self.acknowledge = function(user, number, bidId) {
+    self.acknowledge = function(user, id, bidId) {
         var bid = bids.getById(bidId).first();
         bid.acknowledged = true;
         bids.save(bid);
         return createBidForUser(user, bid);
     };
 
-    self.cancelBid = function(user, number, bidId) {
+    self.cancelBid = function(user, id, bidId) {
         var bid = bids.getById(bidId).first();
-        var item = items.getByNumber(number).first();
+        var item = items.getById(id).first();
         bid.acknowledged = true;
         bid.winning = false;
         item.sold = false;
@@ -47,7 +47,7 @@ var _ = require("lodash");
         return createBidForUser(user, bid);
     };
 
-    self.closeBid = function(user, number, bidId) {
+    self.closeBid = function(user, id, bidId) {
         var bid = bids.getById(bidId).first();
         bid.closed = true;
         bid.closed_by = user;
@@ -55,25 +55,25 @@ var _ = require("lodash");
         return createBidForUser(user, bid);
     };
 
-    self.markAsSold = function(user, number, bidId) {
+    self.markAsSold = function(user, id, bidId) {
         var bid = bids.getById(bidId).first();
-        var item = items.getByNumber(number).first();
+        var item = items.getById(id).first();
         item.sold = true;
         bid.winning = true;
         bids.save(bid);
         return createBidForUser(user, bid);
     };
 
-    self.markAsShipped = function(user, number, bidId) {
+    self.markAsShipped = function(user, id, bidId) {
         var bid = bids.getById(bidId).first();
         bid.shipped = true;
         bids.save(bid);
         return createBidForUser(user, bid);
     };
 
-    self.markAsReturned = function(user, number, bidId) {
+    self.markAsReturned = function(user, id, bidId) {
         var bid = bids.getById(bidId).first();
-        var item = items.getByNumber(number).first();
+        var item = items.getById(id).first();
         item.sold = false;
         bid.shipped = false;
         bid.winning = false;
@@ -81,7 +81,7 @@ var _ = require("lodash");
         return createBidForUser(user, bid);
     };
 
-    self.markAsPaid = function(user, number, bidId) {
+    self.markAsPaid = function(user, id, bidId) {
         var bid = bids.getById(bidId).first();
         bid.paid = true;
         bids.save(bid);

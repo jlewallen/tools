@@ -13,12 +13,13 @@ var Route = Router.Route;
 var RouteHandler = Router.RouteHandler;
 
 var Layout = React.createClass({
-  render: function () {
+  render: function() {
     return (
       <div className="container">
         <header>
           <ul className="row">
             <li><Link to="home">Home</Link></li>
+            <li><Link to="stores">Stores</Link></li>
             <li><Link to="admin">Admin</Link></li>
             <li><Link to="new-item">New Item</Link></li>
           </ul>
@@ -31,9 +32,18 @@ var Layout = React.createClass({
   }
 });
 
+var ChooseStore = React.createClass({
+  render: function() {
+    return (
+      <StoreChooser showChooser={true} />
+    );
+  }
+});
+
 var routes = (
   <Route name="app" path="/" handler={Layout}>
     <Route name="home" handler={App}/>
+    <Route name="stores" handler={ChooseStore}/>
     <Route name="admin" handler={AdminApp}/>
     <Route name="new-item" handler={NewItem}/>
     <Route name="edit-item" path="/items/:number" handler={EditItem}/>

@@ -24,6 +24,7 @@ var StoreChooser = React.createClass({
   changeState: function() {
     this.setState(this.getInitialState());
     actions.loadCatalog(this.state.currentStore);
+    actions.loadBids(this.state.currentStore);
   },
 
   renderStore: function(store) {
@@ -42,7 +43,7 @@ var StoreChooser = React.createClass({
   },
 
 	render: function() {
-    if (_.isObject(this.state.currentStore)) {
+    if (_.isObject(this.state.currentStore) && this.props.showChooser != true) {
       return (<div>{this.props.children}</div>);
     }
 		return (

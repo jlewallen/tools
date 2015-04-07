@@ -8,7 +8,8 @@ module.exports = flux.createStore({
 
   actions: [
     actions.loadStores,
-    actions.openStore
+    actions.openStore,
+    actions.leaveStore
   ],
 
   loadStores: function(data) {
@@ -18,6 +19,11 @@ module.exports = flux.createStore({
 
   openStore: function(store) {
     this.currentStore = store;
+    this.emitChange();
+  },
+
+  leaveStore: function() {
+    this.currentStore = null;
     this.emitChange();
   },
 

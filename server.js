@@ -25,11 +25,6 @@ function getUser(req) {
   return { userId: null, email: null, admin: false };
 }
 
-app.get('/api/bids/pending', function(req, res) {
-  var user = getUser(req);
-  return res.send(bids.getBids(user));
-});
-
 app.get('/api', function(req, res) {
   var user = getUser(req);
   return res.send({
@@ -42,6 +37,11 @@ app.get('/api', function(req, res) {
 app.get('/api/stores', function(req, res) {
   var user = getUser(req);
   return res.send(stores.getStores(user));
+});
+
+app.get('/api/stores/:storeId/bids/pending', function(req, res) {
+  var user = getUser(req);
+  return res.send(bids.getBids(user, req.params.storeId));
 });
 
 app.get('/api/stores/:storeId/catalog', function(req, res) {

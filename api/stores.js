@@ -17,7 +17,8 @@ var _ = require("lodash");
     function createStoreForUser(user, store) {
         return _.extend({}, store, {
             urls: {
-                catalog: "/api/stores/" + store.id + "/catalog"
+                catalog: "/api/stores/" + store.id + "/catalog",
+                bids: "/api/stores/" + store.id + "/bids/pending"
             }
         });
     }

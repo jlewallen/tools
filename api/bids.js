@@ -24,9 +24,9 @@ var _ = require("lodash");
         });
     }
 
-    self.getBids = function(user) {
+    self.getBids = function(user, storeId) {
         return {
-            bids: bids.getAll().map(_.curry(createBidForUser)(user)).value()
+          bids: bids.getAll().where({ storeId: storeId }).map(_.curry(createBidForUser)(user)).value()
         };
     };
 

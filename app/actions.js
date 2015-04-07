@@ -53,9 +53,10 @@ module.exports = createActionFunctions({
     });
   },
   openStore: true,
+  leaveStore: true,
   loadCatalog: function(store) {
     if (!_.isObject(store)) {
-      console.log("No current store.");
+      console.log("No current store when loading catalog.");
       return Promise.resolve({ });
     }
     return api({
@@ -63,16 +64,20 @@ module.exports = createActionFunctions({
       url: store.urls.catalog
     });
   },
+  loadBids: function(store) {
+    if (!_.isObject(store)) {
+      console.log("No current store when loading bids.");
+      return Promise.resolve({ });
+    }
+    return api({
+      concurrency: 1,
+      url: store.urls.bids
+    });
+  },
   loadThread: function(id) {
     return api({
       concurrency: 1,
       url: '/api/threads/' + id
-    });
-  },
-  loadBids: function() {
-    return api({
-      concurrency: 1,
-      url: '/api/bids/pending'
     });
   },
   addBid: true,

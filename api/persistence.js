@@ -74,6 +74,7 @@ var _ = require("lodash");
                 created: new Date(),
                 modified: new Date(),
                 itemId: item.id,
+                storeId: item.storeId,
                 email: user.email,
                 won: false,
                 shipped: false,

@@ -16,17 +16,19 @@ var RouteHandler = Router.RouteHandler;
 var Layout = React.createClass({
   render: function() {
     return (
-      <div className="container">
-        <header>
-          <ul className="row">
-            <li><Link to="home">Home</Link></li>
-            <li><Link to="stores">Stores</Link></li>
-            <li><Link to="admin">Admin</Link></li>
-            <li><Link to="new-item">New Item</Link></li>
-            <li><Link to="logout">Logout</Link></li>
-          </ul>
+      <div>
+        <header className="container">
+          <div className="row">
+            <div className="col md-2"><Link to="home">Home</Link></div>
+            <div className="col md-2"><Link to="stores">Stores</Link></div>
+            <div className="col md-2"><Link to="admin">Admin</Link></div>
+            <div className="col md-2"><Link to="new-item">New Item</Link></div>
+            <div className="col md-2"><Link to="logout">Logout</Link></div>
+          </div>
         </header>
-        <RouteHandler/>
+        <div className="container">
+          <RouteHandler/>
+        </div>
       </div>
     );
   }

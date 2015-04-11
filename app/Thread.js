@@ -43,7 +43,7 @@ var Thread = React.createClass({
   },
 
   renderMessage: function(message) {
-    return (<div key={message.id} className="row">
+    return (<div key={message.id}>
               <div>{message.timestamp}</div>
               <div>{message.sender}</div>
               <div>{message.body}</div>
@@ -53,7 +53,7 @@ var Thread = React.createClass({
   renderReply: function() {
     if (this.props.openReply) {
       return (
-        <div className="row reply">
+        <div className="reply">
           <form onSubmit={this.replyToThread}>
             <textarea valueLink={this.linkState('message')} className="form-control"></textarea>
             <button type="SUBMIT" className="btn btn-small">Reply</button>

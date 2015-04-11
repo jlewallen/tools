@@ -26,7 +26,7 @@ var _ = require("lodash");
 
     self.getBids = function(user, storeId) {
         return {
-          bids: bids.getAll().where({ storeId: storeId }).map(_.curry(createBidForUser)(user)).value()
+          bids: bids.getAll().where({ storeId: storeId }).map(_.curry(createBidForUser)(user.get())).value()
         };
     };
 
@@ -34,7 +34,7 @@ var _ = require("lodash");
         var bid = bids.getById(bidId).first();
         bid.acknowledged = true;
         bids.save(bid);
-        return createBidForUser(user, bid);
+        return createBidForUser(user.get(), bid);
     };
 
     self.cancelBid = function(user, id, bidId) {
@@ -44,15 +44,15 @@ var _ = require("lodash");
         bid.winning = false;
         item.sold = false;
         bids.save(bid);
-        return createBidForUser(user, bid);
+        return createBidForUser(user.get(), bid);
     };
 
     self.closeBid = function(user, id, bidId) {
         var bid = bids.getById(bidId).first();
         bid.closed = true;
-        bid.closed_by = user;
+        bid.closed_by = user.get();
         bids.save(bid);
-        return createBidForUser(user, bid);
+        return createBidForUser(user.get(), bid);
     };
 
     self.markAsSold = function(user, id, bidId) {
@@ -61,14 +61,14 @@ var _ = require("lodash");
         item.sold = true;
         bid.winning = true;
         bids.save(bid);
-        return createBidForUser(user, bid);
+        return createBidForUser(user.get(), bid);
     };
 
     self.markAsShipped = function(user, id, bidId) {
         var bid = bids.getById(bidId).first();
         bid.shipped = true;
         bids.save(bid);
-        return createBidForUser(user, bid);
+        return createBidForUser(user.get(), bid);
     };
 
     self.markAsReturned = function(user, id, bidId) {
@@ -78,14 +78,14 @@ var _ = require("lodash");
         bid.shipped = false;
         bid.winning = false;
         bids.save(bid);
-        return createBidForUser(user, bid);
+        return createBidForUser(user.get(), bid);
     };
 
     self.markAsPaid = function(user, id, bidId) {
         var bid = bids.getById(bidId).first();
         bid.paid = true;
         bids.save(bid);
-        return createBidForUser(user, bid);
+        return createBidForUser(user.get(), bid);
     };
 
     module.exports = self;

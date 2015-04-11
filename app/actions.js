@@ -163,4 +163,16 @@ module.exports = createActionFunctions({
       data: JSON.stringify(item)
     });
   },
+  logout: function() {
+    return api({
+      concurrency: 1,
+      url: "/auth/logout"
+    });
+  },
+  loadCurrentUser: function() {
+    return api({
+      concurrency: 1,
+      url: "/api/profile"
+    });
+  }
 });

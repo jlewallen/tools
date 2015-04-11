@@ -2,8 +2,9 @@
 var React = require('react');
 var addons = require('react-addons');
 var CatalogStore = require('./CatalogStore');
-var actions = require('./actions');
+var RequireCurrentUser  = require("./RequireCurrentUser");
 var BidPanel = require('./BidPanel');
+var actions = require('./actions');
 var _ = require('lodash');
 
 var ItemListing = React.createClass({
@@ -46,8 +47,10 @@ var ItemListing = React.createClass({
           <div className="name">{this.state.item.name}</div>
           <div className="description">{this.state.item.description}</div>
           <div className="price">{this.state.item.price}</div>
-          {this.renderLowerPanel()}
-          {this.renderAdminPanel()}
+          <RequireCurrentUser>
+            {this.renderLowerPanel()}
+            {this.renderAdminPanel()}
+          </RequireCurrentUser>
         </div>
       </div>
 		);

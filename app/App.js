@@ -1,6 +1,7 @@
 /** @jsx React.DOM */
 var React = require('react');
 var AvailableItems = require("./AvailableItems.js");
+var StoreChooser = require('./StoreChooser');
 
 var App = React.createClass({
   getInitialState: function () {
@@ -11,7 +12,9 @@ var App = React.createClass({
 	render: function() {
 		return (
       <div>
-        <AvailableItems />
+        <StoreChooser>
+          <AvailableItems />
+        </StoreChooser>
       </div>
 		);
 	}

@@ -9,20 +9,86 @@ var threads = require("./api/threads");
 var users = require("./api/users");
 var stores = require("./api/stores");
 var data = require("./api/data");
+var configuration = require("./configuration");
 
 app.use(serveStatic(__dirname + '/build'))
 var bodyParser = require('body-parser')
 app.use(bodyParser.json());
 
+var passport = require('passport');
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+passport.use(new GoogleStrategy(configuration.auth, function(accessToken, refreshToken, profile, done) {
+  done(null, {
+    id: profile.id,
+    displayName: profile.displayName,
+    photos: profile.photos,
+    emails: profile.emails
+  });
+}));
+passport.serializeUser(function(user, done) {
+  done(null, JSON.stringify(user));
+});
+passport.deserializeUser(function(obj, done) {
+  console.log(obj);
+  done(null, JSON.parse(obj));
+});
+
+var session = require("cookie-session");
+app.use(session({ secret: configuration.sessions.secret }));
+/*
+var session = require('express-session')
+app.use(session({
+  secret: configuration.sessions.secret,
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false }
+}));
+*/
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.get('/auth/google', passport.authenticate('google', { scope: 'email' }));
+app.get('/auth/google/return', passport.authenticate('google', { failureRedirect: '/' }), function(req, res) {
+  res.redirect('/');
+});
+app.get('/auth/logout', function(req, res) {
+  req.session = null;
+  res.send({});
+});
+
 function getUser(req) {
-  var authToken = req.get("X-Auth-Token");
-  if (_.isString(authToken)) {
-    var token = JSON.parse(authToken);
-    return _.extend(token, {
-      admin: token.userId == 'jlewallen'
-    });
+  console.log(req.user);
+  if (!_.isEmpty(req.user)) {
+    return {
+      has: function() {
+        return true;
+      },
+      optional: function() {
+        return req.user;
+      },
+      get: function() {
+        return req.user;
+      }
+    };
   }
-  return { userId: null, email: null, admin: false };
+  return {
+    has: function() {
+      return false;
+    },
+    optional: function() {
+      return null;
+    },
+    get: function() {
+      throw "No user!";
+    }
+  };
+}
+
+function requireUser(user, res, callback) {
+  if (!user.has()) {
+    return res.status(401).send({ error: "No current user" });
+  }
+  callback();
 }
 
 app.get('/api', function(req, res) {
@@ -34,6 +100,11 @@ app.get('/api', function(req, res) {
   });
 });
 
+app.get('/api/profile', function(req, res) {
+  var user = getUser(req);
+  return res.send({ user: user.optional() });
+});
+
 app.get('/api/stores', function(req, res) {
   var user = getUser(req);
   return res.send(stores.getStores(user));
@@ -41,7 +112,9 @@ app.get('/api/stores', function(req, res) {
 
 app.get('/api/stores/:storeId/bids/pending', function(req, res) {
   var user = getUser(req);
-  return res.send(bids.getBids(user, req.params.storeId));
+  requireUser(user, res, function() {
+    return res.send(bids.getBids(user, req.params.storeId));
+  });
 });
 
 app.get('/api/stores/:storeId/catalog', function(req, res) {

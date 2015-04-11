@@ -1,5 +1,6 @@
 /** @jsx React.DOM */
 var React = require('react');
+var StoreChooser = require('./StoreChooser');
 var ItemEditor = require("./ItemEditor");
 
 var NewItem = React.createClass({
@@ -11,7 +12,9 @@ var NewItem = React.createClass({
 	render: function() {
 		return (
       <div>
-        <ItemEditor />
+        <StoreChooser>
+          <ItemEditor />
+        </StoreChooser>
       </div>
 		);
 	}

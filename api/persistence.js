@@ -64,8 +64,8 @@ var _ = require("lodash");
     });
 
     self.bids = self.createStore("bids", {
-        getByItemAndUser: function(itemId, email) {
-            return this.getAll().where({itemId: itemId, email: email});
+        getByItemAndUser: function(itemId, userId) {
+            return this.getAll().where({itemId: itemId, userId: userId});
         },
 
         newBid: function(user, item) {
@@ -75,7 +75,7 @@ var _ = require("lodash");
                 modified: new Date(),
                 itemId: item.id,
                 storeId: item.storeId,
-                email: user.email,
+                userId: user.id,
                 won: false,
                 shipped: false,
                 paid: false,
@@ -94,7 +94,7 @@ var _ = require("lodash");
         newThread: function(user, id, tags, message) {
             return {
                 id: id,
-                userIds: [user.userId],
+                userIds: [user.id],
                 tags: tags,
                 created: new Date(),
                 unread: true,
@@ -106,7 +106,7 @@ var _ = require("lodash");
             return {
                 id: _.uniqueId("thm"),
                 timestamp: new Date(),
-                sender: user.email,
+                senderId: user.id,
                 body: message,
                 unread: true
             };
@@ -123,11 +123,12 @@ var _ = require("lodash");
     });
 
     self.users = self.createStore("users", {
-      newUser: function(email, name) {
+      newUser: function(user) {
         return {
-          id: _.uniqueId("user"),
-          email: email,
-          name: name
+          id: user.id,
+          emails: user.emails,
+          photos: user.photos,
+          displayName: user.displayName
         };
       }
     });

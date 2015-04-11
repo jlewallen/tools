@@ -25,7 +25,7 @@ var _ = require("lodash");
 
     self.getStores = function(user) {
         return {
-          stores: stores.getAll().map(_.curry(createStoreForUser)(user)).value()
+          stores: stores.getAll().map(_.curry(createStoreForUser)(user.optional())).value()
         };
     };
 

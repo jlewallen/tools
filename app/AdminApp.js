@@ -1,6 +1,8 @@
 /** @jsx React.DOM */
 var React = require('react');
 var BidsDashboard = require("./BidsDashboard");
+var StoreChooser = require('./StoreChooser');
+var RequireCurrentUser  = require("./RequireCurrentUser");
 
 var AdminApp = React.createClass({
   getInitialState: function () {
@@ -11,8 +13,12 @@ var AdminApp = React.createClass({
 	render: function() {
 		return (
       <div>
-        <h3>Administration</h3>
-        <BidsDashboard/>
+        <RequireCurrentUser>
+          <StoreChooser>
+            <h3>Administration</h3>
+            <BidsDashboard/>
+          </StoreChooser>
+        </RequireCurrentUser>
       </div>
 		);
 	}

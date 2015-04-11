@@ -6,6 +6,7 @@ var StoreChooser = require('./StoreChooser');
 var AdminApp = require('./AdminApp');
 var NewItem = require('./NewItem');
 var EditItem = require('./EditItem');
+var Logout = require('./Logout');
 
 var DefaultRoute = Router.DefaultRoute;
 var Link = Router.Link;
@@ -22,11 +23,10 @@ var Layout = React.createClass({
             <li><Link to="stores">Stores</Link></li>
             <li><Link to="admin">Admin</Link></li>
             <li><Link to="new-item">New Item</Link></li>
+            <li><Link to="logout">Logout</Link></li>
           </ul>
         </header>
-        <StoreChooser>
-          <RouteHandler/>
-        </StoreChooser>
+        <RouteHandler/>
       </div>
     );
   }
@@ -47,6 +47,7 @@ var routes = (
     <Route name="admin" handler={AdminApp}/>
     <Route name="new-item" handler={NewItem}/>
     <Route name="edit-item" path="/items/:number" handler={EditItem}/>
+    <Route name="logout" handler={Logout}/>
     <DefaultRoute handler={App}/>
   </Route>
 );

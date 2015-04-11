@@ -16,16 +16,16 @@ var _ = require("lodash");
     }
 
     self.getThreads = function(user, id) {
-        return threads.getAll().map(_.curry(createThreadForUser)(user)).value();
+        return threads.getAll().map(_.curry(createThreadForUser)(user.get())).value();
     };
 
     self.getThread = function(user, id) {
-        return threads.getById(id).map(_.curry(createThreadForUser)(user)).first();
+        return threads.getById(id).map(_.curry(createThreadForUser)(user.get())).first();
     };
 
     self.replyToThread = function(user, id, data) {
         var thread = threads.getById(id).first();
-        var message = persistence.threads.newThreadMessage(user, data.message);
+        var message = persistence.threads.newThreadMessage(user.get(), data.message);
         thread.messages.push(message);
         _(thread.tags).each(function(tag) {
             var bid = persistence.bids.getById(tag).first();
@@ -37,7 +37,7 @@ var _ = require("lodash");
             }
         }).value();
         threads.save(thread);
-        return createThreadForUser(user, thread);
+        return createThreadForUser(user.get(), thread);
     };
 
     module.exports = self;

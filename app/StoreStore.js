@@ -2,9 +2,17 @@ var flux = require('flux-react');
 var actions = require('./actions.js');
 var _ = require("lodash");
 
+function getSavedStore() {
+  var saved = window.localStorage["currentStore"];
+  if (_.isString(saved)) {
+    return JSON.parse(saved);
+  }
+  return null;
+}
+
 module.exports = flux.createStore({
   stores: [],
-  currentStore: null,
+  currentStore: getSavedStore(),
 
   actions: [
     actions.loadStores,
@@ -19,11 +27,12 @@ module.exports = flux.createStore({
 
   openStore: function(store) {
     this.currentStore = store;
+    window.localStorage["currentStore"] = JSON.stringify(store);
     this.emitChange();
   },
 
   leaveStore: function() {
-    this.currentStore = null;
+    this.currentStore = window.localStorage["currentStore"] = null;
     this.emitChange();
   },
 

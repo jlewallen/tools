@@ -51,7 +51,7 @@ var BidPanel = React.createClass({
         <button className="btn btn-small btn-success" onClick={this.showConversation}>Show Conversation</button>
       );
     }
-    return (<Thread id={bid.thread.id} openReply={true} />);
+    return (<Thread key={bid.id} id={bid.thread.id} openReply={true} />);
   },
 
 	render: function() {

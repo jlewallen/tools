@@ -32,7 +32,7 @@ var StoreChooser = React.createClass({
       actions.openStore(store);
     };
     return (
-      <div>
+      <div key={store.id}>
         <h3>{store.name}</h3>
         <p>
           Store description goes here.

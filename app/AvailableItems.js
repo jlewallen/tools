@@ -28,7 +28,7 @@ var AvailableItems = React.createClass({
   },
 
   renderItem: function(item) {
-    return (<ItemListing number={item.number}/>);
+    return (<ItemListing key={item.id} number={item.number}/>);
   },
 
 	render: function() {

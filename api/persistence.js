@@ -90,6 +90,30 @@ var _ = require("lodash");
         }
     });
 
+    self.stores = self.createStore("stores", {
+      newStore: function(name) {
+        return {
+          id: _.uniqueId("store"),
+          name: name
+        };
+      }
+    });
+
+    self.users = self.createStore("users", {
+      newUser: function(user) {
+        return {
+          id: user.id,
+          emails: user.emails,
+          photos: user.photos,
+          displayName: user.displayName
+        };
+      },
+
+      createOrUpdateUser: function(user) {
+        this.save(_.extend(this.getById(user.get().id).first() || {}, user.get()));
+      }
+    });
+
     self.threads = self.createStore("threads", {
         newThread: function(user, id, tags, message) {
             return {
@@ -111,26 +135,6 @@ var _ = require("lodash");
                 unread: true
             };
         }
-    });
-
-    self.stores = self.createStore("stores", {
-      newStore: function(name) {
-        return {
-          id: _.uniqueId("store"),
-          name: name
-        };
-      }
-    });
-
-    self.users = self.createStore("users", {
-      newUser: function(user) {
-        return {
-          id: user.id,
-          emails: user.emails,
-          photos: user.photos,
-          displayName: user.displayName
-        };
-      }
     });
 
     module.exports = self;

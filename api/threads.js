@@ -7,8 +7,19 @@ var _ = require("lodash");
 
     var threads = persistence.threads;
 
+    function createMessageForUser(users, user, message) {
+        return _.extend({}, message, {
+            sender: users[message.senderId]
+        });
+    }
+
     function createThreadForUser(user, thread) {
+        var userIds = _(thread.messages).pluck("senderId").uniq();
+        var users = userIds.map(persistence.users.getById).map(function(i) {
+          return i.first();
+        }).groupBy('id').value();
         return _.extend({}, thread, {
+            messages: _(thread.messages).map(_.curry(createMessageForUser)(users, user)).value(),
             urls: {
                 reply: "/api/threads/" + thread.id
             }
@@ -26,6 +37,7 @@ var _ = require("lodash");
     self.replyToThread = function(user, id, data) {
         var thread = threads.getById(id).first();
         var message = persistence.threads.newThreadMessage(user.get(), data.message);
+        persistence.users.createOrUpdateUser(user);
         thread.messages.push(message);
         _(thread.tags).each(function(tag) {
             var bid = persistence.bids.getById(tag).first();

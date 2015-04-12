@@ -39,6 +39,7 @@ var _ = require("lodash");
         var bid = persistence.bids.newBid(user.get(), item);
         var tags = [bid.id, item.id];
         var thread = persistence.threads.newThread(user.get(), bid.thread.id, tags, persistence.threads.newThreadMessage(user.get(), data.message));
+        persistence.users.createOrUpdateUser(user);
         persistence.bids.save(bid);
         persistence.threads.save(thread);
         return createItemForUser(user.get(), item);

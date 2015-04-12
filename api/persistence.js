@@ -58,9 +58,6 @@ var _ = require("lodash");
     };
 
     self.items = self.createStore("items", {
-        getByNumber: function(number) {
-            return this.getByKey('number', number);
-        }
     });
 
     self.bids = self.createStore("bids", {

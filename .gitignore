@@ -2,3 +2,9 @@ node_modules
 .idea
 configuration.js
 *.swp
+build/main.css
+build/main.js
+build/specs.js
+build/vendors.js
+deploy/main.css
+deploy/main.js

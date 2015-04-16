@@ -167,13 +167,13 @@ gulp.task('deploy', function () {
   browserifyTask({
     development: false,
     src: './app/main.js',
-    dest: './dist'
+    dest: './deploy'
   });
   
   cssTask({
     development: false,
     src: './styles/**/*.css',
-    dest: './dist'
+    dest: './deploy'
   });
 });
 

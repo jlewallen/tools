@@ -35,12 +35,12 @@ var AvailableItems = React.createClass({
 		return (
       <div>
         <h3>Available Items</h3>
-        <div className="container">
+        <div>
           {this.state.available.map(this.renderItem)}
         </div>
 
         <h3>Sold Items</h3>
-        <div className="container">
+        <div>
           {this.state.sold.map(this.renderItem)}
         </div>
       </div>

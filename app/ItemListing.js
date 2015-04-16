@@ -42,16 +42,14 @@ var ItemListing = React.createClass({
   },
 	render: function() {
 		return (
-			<div>
-        <div className="row">
-          <div className="name">{this.state.item.name}</div>
-          <div className="description">{this.state.item.description}</div>
-          <div className="price">{this.state.item.price}</div>
-          <RequireCurrentUser>
-            {this.renderLowerPanel()}
-            {this.renderAdminPanel()}
-          </RequireCurrentUser>
-        </div>
+      <div>
+        <div className="name">{this.state.item.name}</div>
+        <div className="description">{this.state.item.description}</div>
+        <div className="price">{this.state.item.price}</div>
+        <RequireCurrentUser>
+          {this.renderLowerPanel()}
+          {this.renderAdminPanel()}
+        </RequireCurrentUser>
       </div>
 		);
 	}

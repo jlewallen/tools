@@ -29,7 +29,6 @@ passport.serializeUser(function(user, done) {
   done(null, JSON.stringify(user));
 });
 passport.deserializeUser(function(obj, done) {
-  console.log(obj);
   done(null, JSON.parse(obj));
 });
 
@@ -57,7 +56,6 @@ app.get('/auth/logout', function(req, res) {
 });
 
 function getUser(req) {
-  console.log(req.user);
   if (!_.isEmpty(req.user)) {
     return {
       has: function() {
